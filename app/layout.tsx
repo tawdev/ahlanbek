@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import WhatsappContact from "@/components/WhatsappContact";
 
 export default function RootLayout({
   children,
@@ -22,6 +24,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         {children}
+        <ScrollToTop />
+        <WhatsappContact />
         <Footer />
       </body>
     </html>

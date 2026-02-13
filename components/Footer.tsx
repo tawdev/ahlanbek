@@ -1,36 +1,123 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { gsap } from "@/lib/gsap-animations";
+import { useGSAP } from "@/lib/gsap-animations";
 
 export default function Footer() {
+    const footerRef = useRef<HTMLElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+    const bottomBarRef = useRef<HTMLDivElement>(null);
+    const bgShape1Ref = useRef<HTMLDivElement>(null);
+    const bgShape2Ref = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        // Floating Background Shapes
+        gsap.to(bgShape1Ref.current, {
+            y: -50,
+            x: 20,
+            duration: 10,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+        gsap.to(bgShape2Ref.current, {
+            y: 50,
+            x: -20,
+            duration: 12,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: 1
+        });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: footerRef.current,
+                start: "top 90%",
+            }
+        });
+
+        // Entrance sequence: Bottom to top staggered reveal
+        tl.fromTo(Array.from(contentRef.current?.children || []),
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.15,
+                duration: 1.2,
+                ease: "power4.out",
+                clearProps: "all"
+            }
+        )
+            .fromTo(bottomBarRef.current,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 1, ease: "power3.out", clearProps: "all" },
+                "-=0.8"
+            );
+
+        // Social Icons Scale & Hover
+        const socialIcons = contentRef.current?.querySelectorAll(".social-icon");
+        if (socialIcons) {
+            gsap.fromTo(socialIcons,
+                { scale: 0, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    stagger: 0.1,
+                    duration: 0.8,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: footerRef.current,
+                        start: "top 80%",
+                    }
+                }
+            );
+        }
+    });
+
     return (
-        <footer className="bg-white pt-24 pb-12 border-t border-gray-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <footer ref={footerRef} className="bg-white pt-24 pb-12 border-t border-gray-100 relative overflow-hidden">
+            {/* Parallax BG Shapes */}
+            <div ref={bgShape1Ref} className="absolute -top-10 -left-10 w-64 h-64 bg-blue-50/40 rounded-full blur-3xl -z-10" />
+            <div ref={bgShape2Ref} className="absolute bottom-0 -right-10 w-80 h-80 bg-slate-50/50 rounded-full blur-3xl -z-10" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+                    {/* Brand Section */}
                     <div className="lg:col-span-4">
-                        <Link href="/" className="font-bold text-3xl text-primary flex items-center gap-2 mb-6">
-                            <span className="bg-primary text-white w-10 h-10 rounded-xl flex items-center justify-center text-xl">A</span>
-                            Ahlanbek
+                        <Link href="/" className="font-bold text-3xl text-blue-600 flex items-center gap-2 mb-6 group">
+                            <span className="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-xl transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">A</span>
+                            <span className="tracking-tighter">Ahlanbek</span>
                         </Link>
                         <p className="text-gray-500 mb-8 leading-relaxed text-lg">
                             Making your dream become true since 2009. We connect markets, people, and opportunities with quality services and unwavering commitment.
                         </p>
                         <div className="flex space-x-4">
                             {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                                <Link key={i} href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg">
+                                <Link
+                                    key={i}
+                                    href="#"
+                                    className="social-icon w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                                >
                                     <Icon size={18} />
                                 </Link>
                             ))}
                         </div>
                     </div>
 
+                    {/* Quick Links */}
                     <div className="lg:col-span-2 lg:col-start-6">
-                        <h4 className="text-gray-900 font-bold mb-6 text-lg">Quick Links</h4>
+                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight">Quick Links</h4>
                         <ul className="space-y-4">
                             {["Home", "Services", "About Us", "Contact"].map((item) => (
                                 <li key={item}>
-                                    <Link href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`} className="text-gray-500 hover:text-primary transition-colors flex items-center gap-1 group">
+                                    <Link
+                                        href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                                        className="text-gray-500 hover:text-blue-600 transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1"
+                                    >
                                         {item}
                                         <ArrowUpRight size={14} className="opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                                     </Link>
@@ -39,12 +126,13 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Services Links */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-gray-900 font-bold mb-6 text-lg">Services</h4>
+                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight">Services</h4>
                         <ul className="space-y-4">
                             {["Investment", "Real Estate", "Tourism", "Import & Export"].map((item) => (
                                 <li key={item}>
-                                    <Link href="#" className="text-gray-500 hover:text-primary transition-colors">
+                                    <Link href="#" className="text-gray-500 hover:text-blue-600 transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1">
                                         {item}
                                     </Link>
                                 </li>
@@ -52,38 +140,33 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Contact info Reveal from Right */}
                     <div className="lg:col-span-3">
-                        <h4 className="text-gray-900 font-bold mb-6 text-lg">Contact Info</h4>
+                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight">Contact Info</h4>
                         <ul className="space-y-6">
-                            <li className="flex items-start gap-4">
-                                <div className="p-2 bg-blue-50 text-primary rounded-lg shrink-0">
-                                    <MapPin size={20} />
-                                </div>
-                                <span className="text-gray-500">Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco</span>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <div className="p-2 bg-blue-50 text-primary rounded-lg shrink-0">
-                                    <Phone size={20} />
-                                </div>
-                                <span className="text-gray-500">+212 524 33 55 66</span>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <div className="p-2 bg-blue-50 text-primary rounded-lg shrink-0">
-                                    <Mail size={20} />
-                                </div>
-                                <span className="text-gray-500">contact@ahlanbek.com</span>
-                            </li>
+                            {[
+                                { icon: MapPin, text: "Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco" },
+                                { icon: Phone, text: "+212 607 790 956" },
+                                { icon: Mail, text: "contact@ahlanbek.com" }
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-start gap-4 group">
+                                    <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                                        <item.icon size={20} />
+                                    </div>
+                                    <span className="text-gray-500 transition-colors group-hover:text-gray-900">{item.text}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div ref={bottomBarRef} className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm">
-                        &copy; {new Date().getFullYear()} C-Digital. All rights reserved.
+                        &copy; {new Date().getFullYear()} cdigital. All rights reserved.
                     </p>
                     <div className="flex gap-8 text-sm text-gray-400">
-                        <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-blue-600 transition-colors">Terms of Service</Link>
                     </div>
                 </div>
             </div>

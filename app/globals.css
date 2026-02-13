@@ -1,18 +1,29 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-  
+
   --primary: #2563eb;
   --primary-foreground: #ffffff;
-  
+
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
-  
+
   --muted: #f8fafc;
   --muted-foreground: #64748b;
-  
+
   --accent: #eff6ff;
   --accent-foreground: #1e40af;
 }

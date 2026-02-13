@@ -3,72 +3,133 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Building2, Plane, Briefcase, Globe, Smartphone, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
     {
         icon: TrendingUp,
         title: "L’investissement",
         description: "From concept to execution, we create memorable events that inspire, engage, and leave a lasting impression.",
+        color: "bg-blue-500",
+        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop",
     },
     {
         icon: Building2,
         title: "L’immobilier",
         description: "Connecting you to the best properties and investment opportunities with trust, transparency, and expertise.",
+        color: "bg-indigo-500",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
     },
     {
         icon: Plane,
         title: "Tourism",
         description: "Discover exceptional travel experiences, guided tours, and unique adventures that showcase the beauty of each destination.",
+        color: "bg-sky-500",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop",
     },
     {
         icon: Briefcase,
-        title: "Management (La gestion)",
+        title: "Management",
         description: "Professional management services designed to streamline operations, optimize resources, and achieve sustainable growth.",
+        color: "bg-violet-500",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
     },
     {
         icon: Globe,
         title: "Import & Export",
         description: "Facilitating global trade with reliable import and export solutions that connect markets and drive business success.",
+        color: "bg-cyan-500",
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
     },
     {
         icon: Smartphone,
         title: "Web & App Development",
         description: "Innovative web and mobile applications designed to enhance your digital presence, boost user engagement, and drive business growth.",
+        color: "bg-teal-500",
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
     },
 ];
 
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+};
+
 export default function Services() {
     return (
-        <section className="py-20 bg-gray-50" id="services">
+        <section className="py-24 bg-gray-50/50" id="services">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Our Capabilities</h2>
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900">Quality Services</h3>
+                <div className="text-center mb-20">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-sm font-bold text-primary uppercase tracking-widest mb-3 bg-blue-100/50 inline-block px-4 py-1 rounded-full text-blue-700"
+                    >
+                        Our Capabilities
+                    </motion.h2>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight"
+                    >
+                        Quality Services
+                    </motion.h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.4 }}
-                            className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group"
+                            variants={item}
+                            whileHover={{ y: -5 }}
+                            className="bg-white rounded-3xl shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 transition-all group relative overflow-hidden h-[400px] flex flex-col justify-end p-8"
                         >
-                            <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                                <service.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                            {/* Background Image */}
+                            <div className="absolute inset-0 z-0">
+                                <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/80 transition-colors duration-300" />
                             </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h4>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
+
+                            <div className={`w-14 h-14 ${service.color} bg-opacity-90 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10 shadow-lg`}>
+                                <service.icon className={`w-7 h-7 text-white`} />
+                            </div>
+
+                            <h4 className="text-2xl font-bold text-white mb-3 relative z-10">{service.title}</h4>
+                            <p className="text-gray-200 mb-6 leading-relaxed relative z-10 text-sm line-clamp-3">
                                 {service.description}
                             </p>
-                            <Link href="#" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all">
-                                Learn more <ArrowRight size={16} className="ml-1" />
+
+                            <Link href="#" className="inline-flex items-center text-white font-bold group-hover:text-blue-300 transition-colors relative z-10">
+                                Learn more
+                                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

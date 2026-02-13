@@ -17,7 +17,7 @@ interface Feature {
 }
 
 interface ProcessStep {
-    step: string;
+    step: number;
     title: string;
     description: string;
 }

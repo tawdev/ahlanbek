@@ -18,8 +18,8 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
         const obj = { val: 0 };
         gsap.to(obj, {
             val: value,
-            duration: 2,
-            ease: "power2.out",
+            duration: 2.5,
+            ease: "expo.out",
             scrollTrigger: {
                 trigger: countRef.current,
                 start: "top 95%",
@@ -30,12 +30,25 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
                 }
             }
         });
+
+        // Metallic shimmer effect
+        gsap.to(countRef.current, {
+            backgroundPosition: "200% center",
+            duration: 3,
+            repeat: -1,
+            ease: "linear"
+        });
     });
 
     return (
-        <span className="tabular-nums">
-            <span ref={countRef}>0</span>
-            {suffix}
+        <span className="tabular-nums relative inline-block">
+            <span
+                ref={countRef}
+                className="bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-[length:200%_auto] text-transparent bg-clip-text"
+            >
+                0
+            </span>
+            <span className="text-blue-600">{suffix}</span>
         </span>
     );
 }
@@ -45,21 +58,49 @@ export default function Stats() {
 
     useGSAP(() => {
         if (containerRef.current) {
-            gsap.fromTo(Array.from(containerRef.current.children),
-                { y: 30, opacity: 0 },
+            const cards = Array.from(containerRef.current.children);
+
+            gsap.fromTo(cards,
+                { y: 50, opacity: 0, scale: 0.9 },
                 {
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: "top 90%",
+                        once: true
                     },
                     y: 0,
                     opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: "power3.out",
-                    clearProps: "y, scale, transform"
+                    scale: 1,
+                    duration: 1.2,
+                    stagger: 0.15,
+                    ease: "power4.out",
+                    clearProps: "all"
                 }
             );
+
+            // Hover effects for cards
+            cards.forEach(card => {
+                const onEnter = () => {
+                    gsap.to(card, {
+                        y: -8,
+                        boxShadow: "0 20px 40px rgba(37, 99, 235, 0.1)",
+                        borderColor: "rgba(37, 99, 235, 0.2)",
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                };
+                const onLeave = () => {
+                    gsap.to(card, {
+                        y: 0,
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                        borderColor: "rgba(243, 244, 246, 1)",
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                };
+                card.addEventListener("mouseenter", onEnter);
+                card.addEventListener("mouseleave", onLeave);
+            });
         }
     });
 
@@ -72,7 +113,7 @@ export default function Stats() {
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className="text-center p-8 bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 opacity-0"
+                            className="text-center p-8 bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:shadow-2xl transition-all duration-300"
                         >
                             <h3 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2">
                                 <Counter value={stat.value} suffix={stat.suffix} />

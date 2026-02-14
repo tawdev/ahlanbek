@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { gsap } from "@/lib/gsap-animations";
 import { useGSAP } from "@/lib/gsap-animations";
+import Logo from "./Logo";
 
+// Navigation component - Updated menu order
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -18,8 +20,7 @@ export default function Navbar() {
     const btnRef = useRef<HTMLDivElement>(null);
 
     // Dark header pages need white text initially
-    const isDarkHeader = pathname === "/" ||
-        pathname === "/contact" ||
+    const isDarkHeader = pathname === "/contact" ||
         pathname === "/about-us" ||
         pathname === "/services" ||
         pathname === "/projects" ||
@@ -76,15 +77,21 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div ref={logoRef} className="flex-shrink-0 opacity-0">
-                        <Link href="/" className={`font-bold text-2xl flex items-center gap-2 ${logoColor}`}>
-                            <span className={`${effectiveScrolled || !isDarkHeader ? "bg-primary text-white" : "bg-white text-primary"} w-8 h-8 rounded-lg flex items-center justify-center text-lg`}>A</span>
-                            Ahlanbek
+                        <Link href="/" className="flex items-center gap-2">
+                            <Logo
+                                variant={effectiveScrolled ? "silver" : (isDarkHeader ? "light" : "silver")}
+                                showText={false}
+                                className="scale-75 sm:scale-100 origin-left"
+                            />
+                            <span className={`text-xl font-black tracking-tighter ${effectiveScrolled ? "text-slate-500" : (isDarkHeader ? "text-slate-300" : "text-slate-500")}`}>
+                                AHLANBEK
+                            </span>
                         </Link>
                     </div>
 
                     <div className="hidden md:block">
                         <div ref={linksRef} className="ml-10 flex items-baseline space-x-8">
-                            {["Home", "Services", "Projects", "Contact", "About Us"].map((item) => (
+                            {["Home", "Services", "Projects", "About Us", "Contact"].map((item) => (
                                 <Link
                                     key={item}
                                     href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
@@ -120,7 +127,7 @@ export default function Navbar() {
                 className="md:hidden bg-white border-b border-gray-100 overflow-hidden h-0 opacity-0"
             >
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    {["Home", "Services", "Projects", "Contact", "About Us"].map((item) => (
+                    {["Home", "Services", "Projects", "About Us", "Contact"].map((item) => (
                         <Link
                             key={item}
                             href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}

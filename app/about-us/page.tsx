@@ -8,21 +8,22 @@ export default function AboutPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Header */}
-            <section className="bg-gray-900 pt-32 pb-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/30 via-gray-900 to-gray-900" />
+            <section className="bg-slate-900 pt-40 pb-24 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.2)_0%,_transparent_100%)]" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold text-white mb-6"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
                     >
                         About <span className="text-blue-500">Ahlanbek</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-400 max-w-3xl mx-auto"
+                        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                        className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light"
                     >
                         Driven by passion, defined by excellence. We are dedicated to creating meaningful connections and fostering global growth.
                     </motion.p>
@@ -30,15 +31,16 @@ export default function AboutPage() {
             </section>
 
             {/* Story Section */}
-            <section className="py-24">
+            <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">Our Story</h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Founded in 2009, Ahlanbek started with a simple vision: to bridge the gap between markets and people. What began as a small consultancy firm in Marrakesh has now grown into a multinational corporation with a presence in major global hubs including Munich, Dubai, and London.
                             </p>
@@ -50,19 +52,19 @@ export default function AboutPage() {
                                 {["15+ Years of Excellence", "International Presence", "Customer-Centric Approach"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <CheckCircle2 size={20} className="text-blue-500" />
-                                        <span className="font-medium text-gray-800">{item}</span>
+                                        <span className="font-semibold text-gray-800">{item}</span>
                                     </div>
                                 ))}
                             </div>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="relative h-[500px] rounded-3xl overflow-hidden bg-gray-100"
+                            transition={{ duration: 0.8 }}
+                            className="relative h-[500px] rounded-3xl overflow-hidden bg-gray-100 shadow-2xl"
                         >
-                            {/* Placeholder for About Image with Unsplash */}
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
                                 style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')" }}
@@ -77,7 +79,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Stats Section Reuse */}
+            {/* Stats Section */}
             <div className="bg-gray-50">
                 <Stats />
             </div>
@@ -85,8 +87,8 @@ export default function AboutPage() {
             {/* Mission */}
             <section className="py-24 bg-white text-center">
                 <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Mission</h2>
-                    <p className="text-2xl text-gray-600 font-medium italic leading-relaxed">
+                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">Our Mission</h2>
+                    <p className="text-2xl text-gray-600 font-light italic leading-relaxed">
                         "To provide world-class services that empower businesses and individuals to thrive in a connected world, upholding the values of integrity, innovation, and excellence in everything we do."
                     </p>
                 </div>

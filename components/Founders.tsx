@@ -14,29 +14,51 @@ interface FounderCardProps {
 
 const FounderCard = ({ name, position, description, image }: FounderCardProps) => {
     const cardRef = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLImageElement>(null);
 
     useGSAP(() => {
-        // Hover animation handled by Tailwind usually, 
-        // but user requested GSAP lift and shadow intensification.
         if (cardRef.current) {
             const el = cardRef.current;
 
             const onMouseEnter = () => {
                 gsap.to(el, {
-                    y: -10,
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
-                    duration: 0.4,
+                    y: -15,
+                    rotateY: -5,
+                    rotateX: 2,
+                    boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.2)",
+                    duration: 0.6,
                     ease: "power2.out"
                 });
+
+                // Ken Burns, Color and Brightness on hover
+                if (imageRef.current) {
+                    gsap.to(imageRef.current, {
+                        scale: 1.15,
+                        filter: "grayscale(0%) brightness(1.1)",
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+                }
             };
 
             const onMouseLeave = () => {
                 gsap.to(el, {
                     y: 0,
+                    rotateY: 0,
+                    rotateX: 0,
                     boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                    duration: 0.4,
+                    duration: 0.6,
                     ease: "power2.out"
                 });
+
+                if (imageRef.current) {
+                    gsap.to(imageRef.current, {
+                        scale: 1.05,
+                        filter: "grayscale(100%) brightness(1)",
+                        duration: 0.6,
+                        ease: "power2.out"
+                    });
+                }
             };
 
             el.addEventListener("mouseenter", onMouseEnter);
@@ -52,15 +74,18 @@ const FounderCard = ({ name, position, description, image }: FounderCardProps) =
     return (
         <div
             ref={cardRef}
-            className="founder-card bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 transition-shadow duration-300 h-full flex flex-col"
+            className="founder-card bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 h-full flex flex-col"
+            style={{ perspective: '1000px' }}
         >
             <div className="relative h-[480px] w-full overflow-hidden">
                 <img
+                    ref={imageRef}
                     src={image}
                     alt={name}
-                    className="w-full h-full object-cover object-top transition-all duration-700 hover:scale-105"
+                    className="w-full h-full object-cover object-top"
+                    style={{ transform: 'scale(1.05)', filter: 'grayscale(100%)' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80 pointer-events-none" />
             </div>
             <div className="p-8 flex-grow">
                 <span className="text-blue-600 font-bold text-sm uppercase tracking-widest mb-2 block">{position}</span>
@@ -100,25 +125,32 @@ export default function Founders() {
 
         tl.fromTo(subtitleRef.current,
             { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+            { opacity: 1, y: 0, duration: 1, ease: "power4.out" }
         )
             .fromTo(titleRef.current,
                 { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-                "-=0.6"
+                { opacity: 1, y: 0, duration: 1, ease: "power4.out" },
+                "-=0.7"
             )
             .fromTo(".founder-card",
-                { opacity: 0, y: 50, scale: 0.95 },
+                {
+                    opacity: 0,
+                    y: 100,
+                    rotateX: -20,
+                    scale: 0.9,
+                    transformOrigin: "center bottom"
+                },
                 {
                     opacity: 1,
                     y: 0,
+                    rotateX: 0,
                     scale: 1,
                     stagger: 0.2,
-                    duration: 1,
-                    ease: "power3.out",
-                    clearProps: "all"
+                    duration: 1.5,
+                    ease: "elastic.out(1, 0.75)",
+                    clearProps: "transform"
                 },
-                "-=0.4"
+                "-=0.5"
             );
     }, []);
 

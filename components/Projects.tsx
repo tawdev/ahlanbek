@@ -5,6 +5,7 @@ import { MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { gsap } from "@/lib/gsap-animations";
 import { useGSAP } from "@/lib/gsap-animations";
+import SplitTextReveal from "./SplitTextReveal";
 
 const projects = [
     { id: 1, title: "Science Lab Building", location: "New York, USA", category: "Commercial", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" },
@@ -35,39 +36,53 @@ export default function Projects() {
         }
 
         if (containerRef.current) {
-            gsap.fromTo(Array.from(containerRef.current.children),
-                { y: 50, opacity: 0 },
-                {
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: "top 85%",
+            const cards = Array.from(containerRef.current.children);
+            cards.forEach((card, i) => {
+                gsap.fromTo(card,
+                    {
+                        y: 80,
+                        opacity: 0,
+                        rotateX: -15,
+                        rotateY: i % 2 === 0 ? -8 : 8,
+                        scale: 0.95
                     },
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.2,
-                    stagger: 0.15,
-                    ease: "power4.out",
-                    clearProps: "y, scale, transform"
-                }
-            );
+                    {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top 92%",
+                            toggleActions: "play none none reverse", // Reset when scrolling back up is okay, but doesn't flicker
+                            once: true // Ensure it stays once revealed
+                        },
+                        y: 0,
+                        opacity: 1,
+                        rotateX: 0,
+                        rotateY: 0,
+                        scale: 1,
+                        duration: 1.4,
+                        delay: i * 0.1,
+                        ease: "power4.out",
+                        clearProps: "all"
+                    }
+                );
+            });
         }
     });
 
     return (
         <section className="py-24 bg-white" id="projects">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div ref={headerRef} className="text-center mb-16">
-                    <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3 bg-blue-100/50 inline-block px-4 py-1 rounded-full text-blue-700 opacity-0">
-                        Our Portfolio
-                    </h2>
-                    <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight opacity-0">
+                <div className="mb-16">
+                    <span className="inline-block text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 bg-blue-50 px-4 py-1 rounded-full border border-blue-100">
+                        Portfolio
+                    </span>
+                    <SplitTextReveal className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter">
                         Latest Projects
-                    </h3>
+                    </SplitTextReveal>
                 </div>
 
                 <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {projects.map((project) => (
-                        <div key={project.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 opacity-0">
+                        <div key={project.id} className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                             <div className="relative h-80 overflow-hidden">
                                 <img
                                     src={project.image}

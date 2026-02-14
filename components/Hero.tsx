@@ -1,14 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ArrowRight, ChevronRight, Globe, Shield, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 import { gsap } from "@/lib/gsap-animations";
 import { useGSAP } from "@/lib/gsap-animations";
+import SplitTextReveal from "./SplitTextReveal";
 
 export default function Hero() {
+    const [isMounted, setIsMounted] = useState(false);
+    const [floatingNodes, setFloatingNodes] = useState<any[]>([]);
+
     const containerRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const buttonsRef = useRef<HTMLDivElement>(null);
     const bgElement1Ref = useRef<HTMLDivElement>(null);
@@ -18,161 +22,228 @@ export default function Hero() {
     const image1Ref = useRef<HTMLDivElement>(null);
     const image2Ref = useRef<HTMLDivElement>(null);
 
-    const titleText = "Make Your Dream Become True";
-    const words = titleText.split(" ");
+    useEffect(() => {
+        setIsMounted(true);
+        // Generate stable random values only on client to avoid hydration mismatch
+        const nodes = [...Array(6)].map((_, i) => ({
+            id: i,
+            top: `${10 + Math.random() * 70}%`,
+            left: `${10 + Math.random() * 80}%`,
+            y: [0, -20 - Math.random() * 30, 0],
+            rotate: [0, Math.random() * 25, 0],
+            duration: 3 + Math.random() * 3,
+            delay: Math.random() * 2,
+            layer: (i % 3) + 1
+        }));
+        setFloatingNodes(nodes);
+    }, []);
 
     useGSAP(() => {
         const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.4 } });
 
         // Initial states
-        gsap.set(".word-inner", { y: "110%" });
         gsap.set(descriptionRef.current, { opacity: 0, y: 30 });
         gsap.set(buttonsRef.current?.children || [], { opacity: 0, scale: 0.9, y: 20 });
-        gsap.set([image1Ref.current, image2Ref.current], { opacity: 0, scale: 0.8, x: 50 });
+        gsap.set([image1Ref.current, image2Ref.current], { opacity: 0, scale: 0.8, x: 50, rotateY: 20 });
+        gsap.set(".hero-node", { opacity: 0, scale: 0 });
 
-        // Sequence
-        tl.to(".word-inner", {
-            y: 0,
-            stagger: 0.1,
-            duration: 1.4,
-            ease: "expo.out",
-        })
-            .to(descriptionRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-            }, "-=1")
-            .to(buttonsRef.current?.children || [], {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                stagger: 0.1,
-                duration: 1,
-                ease: "back.out(1.7)",
+        // Continuous Floating Background Mesh
+        gsap.to(bgElement1Ref.current, {
+            x: "20%",
+            y: "15%",
+            rotate: 20,
+            duration: 15,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+        gsap.to(bgElement2Ref.current, {
+            x: "-15%",
+            y: "-20%",
+            rotate: -15,
+            duration: 18,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // Entrance Sequence
+        tl.fromTo(descriptionRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }, "-=0.5")
+            .fromTo(buttonsRef.current?.children || [], {
+                opacity: 0, scale: 0.9, y: 20,
+            }, {
+                opacity: 1, scale: 1, y: 0,
+                stagger: 0.15, duration: 1,
+                ease: "back.out(1.2)"
             }, "-=0.8")
-            .to([image1Ref.current, image2Ref.current], {
+            .fromTo([image1Ref.current, image2Ref.current], {
+                opacity: 0, scale: 1.1, x: 40, rotateY: 20,
+            }, {
+                opacity: 1, scale: 1, x: 0, rotateY: 0,
+                stagger: 0.3, duration: 2,
+                ease: "expo.out"
+            }, "-=1.2")
+            .fromTo(".hero-node", {
+                opacity: 0,
+                scale: 0,
+            }, {
                 opacity: 1,
                 scale: 1,
-                x: 0,
-                stagger: 0.2,
-                duration: 1.5,
-                ease: "power3.out"
-            }, "-=1.2");
+                stagger: 0.08,
+                duration: 1.2,
+                ease: "back.out(1.7)"
+            }, "-=1.5");
 
-        // Subtle Parallax Effect on background and content
+        // Advanced Mouse Parallax
         const handleMouseMove = (e: MouseEvent) => {
             const { clientX, clientY } = e;
-            const xPos = (clientX / window.innerWidth - 0.5) * 40;
-            const yPos = (clientY / window.innerHeight - 0.5) * 40;
+            const x = (clientX / window.innerWidth - 0.5) * 60;
+            const y = (clientY / window.innerHeight - 0.5) * 60;
 
-            gsap.to(bgElement1Ref.current, {
-                x: xPos * 1.5,
-                y: yPos * 1.5,
-                duration: 2,
+            gsap.to(".parallax-layer-1", { x: x * 0.4, y: y * 0.4, duration: 2, ease: "power2.out" });
+            gsap.to(".parallax-layer-2", { x: x * 1, y: y * 1, duration: 2.5, ease: "power2.out" });
+            gsap.to(".parallax-layer-3", { x: x * 1.8, y: y * 1.8, duration: 3, ease: "power2.out" });
+        };
+        window.addEventListener("mousemove", handleMouseMove);
+
+        // Scroll Parallax Enhancement
+        gsap.to(image1Ref.current, {
+            y: -80,
+            rotate: 2,
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.5
+            }
+        });
+        gsap.to(image2Ref.current, {
+            y: -180,
+            rotate: -4,
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 2
+            }
+        });
+
+        // Floating Nodes Parallax
+        gsap.to(".hero-node", {
+            y: (i) => i % 2 === 0 ? -100 : 100,
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+        // Magnetic Buttons Logic
+        const buttons = buttonsRef.current?.querySelectorAll("a, button");
+
+        const handleBtnMove = (e: MouseEvent, btn: HTMLElement) => {
+            const rect = btn.getBoundingClientRect();
+            const btnX = e.clientX - (rect.left + rect.width / 2);
+            const btnY = e.clientY - (rect.top + rect.height / 2);
+            gsap.to(btn, {
+                x: btnX * 0.3,
+                y: btnY * 0.3,
+                duration: 0.6,
                 ease: "power2.out"
-            });
-
-            gsap.to(bgElement2Ref.current, {
-                x: -xPos * 1.2,
-                y: -yPos * 1.2,
-                duration: 2,
-                ease: "power2.out"
-            });
-
-            gsap.to(image1Ref.current, {
-                x: xPos * 0.8,
-                y: yPos * 0.8,
-                duration: 2,
-                ease: "power2.out"
-            });
-
-            gsap.to(image2Ref.current, {
-                x: -xPos * 0.4,
-                y: -yPos * 0.4,
-                duration: 2.5,
-                ease: "power2.out"
-            });
-
-            gsap.to(contentRef.current, {
-                x: xPos * 0.2,
-                y: yPos * 0.2,
-                duration: 3,
-                ease: "power3.out"
             });
         };
 
-        window.addEventListener("mousemove", handleMouseMove);
+        const handleBtnLeave = (btn: HTMLElement) => {
+            gsap.to(btn, {
+                x: 0,
+                y: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.3)"
+            });
+        };
 
-        // Floating animations for background elements (continuous)
-        gsap.to(bgElement1Ref.current, {
-            y: "+=20",
-            x: "-=15",
-            rotation: 5,
-            duration: 10,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
+        const btnMoveHandlers = new Map<HTMLElement, (e: MouseEvent) => void>();
+        const btnLeaveHandlers = new Map<HTMLElement, () => void>();
+
+        buttons?.forEach((btn) => {
+            const moveHandler = (e: MouseEvent) => handleBtnMove(e, btn as HTMLElement);
+            const leaveHandler = () => handleBtnLeave(btn as HTMLElement);
+
+            btnMoveHandlers.set(btn as HTMLElement, moveHandler);
+            btnLeaveHandlers.set(btn as HTMLElement, leaveHandler);
+
+            btn.addEventListener("mousemove", moveHandler as any);
+            btn.addEventListener("mouseleave", leaveHandler as any);
         });
 
-        gsap.to(bgElement2Ref.current, {
-            y: "-=30",
-            x: "+=20",
-            rotation: -5,
-            duration: 12,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: 1
-        });
-
-        // Soft float for images
-        gsap.to(image1Ref.current, {
-            y: "+=15",
-            duration: 4,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
-
-        gsap.to(image2Ref.current, {
-            y: "-=20",
-            duration: 5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: 0.5
-        });
-
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    });
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            buttons?.forEach((btn) => {
+                const moveHandler = btnMoveHandlers.get(btn as HTMLElement);
+                const leaveHandler = btnLeaveHandlers.get(btn as HTMLElement);
+                if (moveHandler) btn.removeEventListener("mousemove", moveHandler as any);
+                if (leaveHandler) btn.removeEventListener("mouseleave", leaveHandler as any);
+            });
+        };
+    }, []);
 
     return (
-        <section ref={containerRef} className="relative bg-[#020617] pt-32 pb-20 lg:pt-20 lg:pb-20 overflow-hidden min-h-screen flex items-center">
-            {/* Premium Deep Mesh Gradient */}
-            <div className="absolute inset-0 bg-[#020617]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,_rgba(37,99,235,0.1)_0%,_transparent_50%),radial-gradient(circle_at_80%_70%,_rgba(29,78,216,0.1)_0%,_transparent_50%)]" />
-            <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none" />
+        <section ref={containerRef} className="relative bg-[#fcfcfc] pt-32 pb-20 lg:pt-20 lg:pb-20 overflow-x-hidden min-h-screen flex items-center w-full max-w-full">
+            {/* Background Parallax Layers */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 w-full">
+                <div className="parallax-layer-1 absolute inset-0 bg-white w-full" />
+                {/* Subtle Metallic Gradients for Light Mode */}
+                <div ref={bgElement1Ref} className="parallax-layer-2 absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[140px] opacity-40 max-w-none" />
+                <div ref={bgElement2Ref} className="parallax-layer-3 absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] bg-slate-100/40 rounded-full blur-[120px] opacity-50 max-w-none" />
+                <div className="absolute top-[20%] left-[30%] w-[400px] h-[400px] bg-blue-50/20 rounded-full blur-[100px] animate-pulse max-w-none" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                {/* Abstract Grid Overlay (Darker dots for light background) */}
+                <div className="absolute inset-0 opacity-[0.05] w-full"
+                    style={{
+                        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.2) 1px, transparent 0)`,
+                        backgroundSize: '40px 40px'
+                    }}
+                />
+                <div className="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] invert w-full" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white w-full" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full overflow-hidden">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     {/* Left Content */}
-                    <div ref={contentRef} className="text-left max-w-2xl">
-                        <h1
-                            ref={titleRef}
-                            className="text-5xl sm:text-6xl lg:text-7xl font-black text-white tracking-tighter mb-8 leading-[0.95] perspective-1000"
+                    <div ref={contentRef} className="text-left col-span-12 lg:col-span-7">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100/80 backdrop-blur-sm border border-slate-200 rounded-full mb-8 shadow-sm group hover:bg-slate-200 transition-colors cursor-default"
                         >
-                            {words.map((word, i) => (
-                                <span key={i} className="inline-block overflow-hidden mr-3 py-1">
-                                    <span className={`word-inner inline-block ${i >= 3 ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600" : ""}`}>
-                                        {word}
-                                    </span>
-                                </span>
-                            ))}
-                        </h1>
+                            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+                            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-slate-600">
+                                We Are Leading International Company In The World
+                            </span>
+                        </motion.div>
+
+                        <div className="relative">
+                            <SplitTextReveal
+                                type="chars"
+                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 tracking-tighter mb-4 leading-[0.9] perspective-1000"
+                            >
+                                Make Your Dream
+                            </SplitTextReveal>
+                            <SplitTextReveal
+                                type="words"
+                                delay={0.5}
+                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter mb-8 leading-[0.9] text-gray-700"
+                            >
+                                Become True
+                            </SplitTextReveal>
+                        </div>
 
                         <p
                             ref={descriptionRef}
-                            className="text-lg text-gray-400 mb-10 leading-relaxed font-light"
+                            className="text-lg text-gray-500 mb-10 leading-relaxed font-light mt-8 max-w-xl"
                         >
                             Since 2009 in Germany, we have been working on the supply of necessary things in Morocco.
                             Bridging continents through excellence and uncompromising quality.
@@ -184,33 +255,33 @@ export default function Hero() {
                         >
                             <Link
                                 href="/services"
-                                className="group relative px-8 py-4 bg-blue-600 text-white rounded-xl font-bold transition-all shadow-2xl shadow-blue-500/20 overflow-hidden flex items-center justify-center gap-3 text-lg w-full sm:w-auto"
+                                className="group relative px-8 py-4 bg-gray-900 text-white rounded-xl font-bold transition-all shadow-2xl shadow-gray-200/50 overflow-hidden flex items-center justify-center gap-3 text-lg w-full sm:w-auto hover:bg-black"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     Our Services
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                <div className="absolute inset-0 bg-blue-700 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
+                                <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
                             </Link>
 
                             <Link
                                 href="/contact"
-                                className="group px-8 py-4 bg-white/5 backdrop-blur-md text-white border border-white/10 rounded-xl font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3 text-lg hover:border-white/20 w-full sm:w-auto"
+                                className="group px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-3 text-lg hover:border-gray-300 w-full sm:w-auto"
                             >
                                 Contact Us
-                                <ChevronRight size={20} className="text-blue-400 group-hover:text-blue-300 transition-colors" />
+                                <ChevronRight size={20} className="text-blue-600 group-hover:text-blue-500 transition-colors" />
                             </Link>
                         </div>
 
-                        {/* Quick Stats/Features */}
-                        <div className="mt-12 grid grid-cols-3 gap-6 pt-12 border-t border-white/5">
+                        {/* Quick Features */}
+                        <div className="mt-12 grid grid-cols-3 gap-6 pt-12 border-t border-gray-100 max-w-xl">
                             {[
                                 { icon: Globe, label: "Global Reach" },
                                 { icon: Shield, label: "Trusted Firm" },
                                 { icon: Zap, label: "Fast Supply" }
                             ].map((item, i) => (
-                                <div key={i} className="flex flex-col gap-2">
-                                    <item.icon className="text-blue-500 w-6 h-6" />
+                                <div key={i} className="flex flex-col gap-2 hero-node">
+                                    <item.icon className="text-blue-600 w-6 h-6" />
                                     <span className="text-sm text-gray-500 font-medium uppercase tracking-wider">{item.label}</span>
                                 </div>
                             ))}
@@ -218,48 +289,54 @@ export default function Hero() {
                     </div>
 
                     {/* Right Image Composition */}
-                    <div ref={imageContainerRef} className="relative hidden lg:block h-[600px]">
+                    <div ref={imageContainerRef} className="relative col-span-12 lg:col-span-5 h-[400px] sm:h-[500px] lg:h-[600px] perspective-2000 mt-12 lg:mt-0">
                         <div
                             ref={image1Ref}
-                            className="absolute top-0 right-0 w-4/5 h-[450px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                            className="absolute top-0 right-0 w-full h-[450px] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 parallax-layer-1"
                         >
                             <img
                                 src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070"
                                 alt="Logistics"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/80 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
                         </div>
 
                         <div
                             ref={image2Ref}
-                            className="absolute -bottom-10 left-0 w-3/5 h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#020617]"
+                            className="absolute bottom-0 lg:-bottom-10 left-0 w-3/4 h-[250px] sm:h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 parallax-layer-2"
                         >
                             <img
                                 src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070"
                                 alt="Modern Office"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-blue-600/20 mix-blend-overlay" />
+                            <div className="absolute inset-0 bg-blue-600/10 mix-blend-overlay" />
                         </div>
 
-                        {/* Decorative floating shapes */}
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-                        <div className="absolute bottom-20 -left-10 w-24 h-24 bg-cyan-400/20 rounded-full blur-2xl" />
+                        {/* Floating 3D Elements */}
+                        {isMounted && floatingNodes.map((node) => (
+                            <motion.div
+                                key={node.id}
+                                animate={{
+                                    y: node.y,
+                                    rotate: node.rotate
+                                }}
+                                transition={{
+                                    repeat: Infinity,
+                                    duration: node.duration,
+                                    delay: node.delay,
+                                    ease: "easeInOut"
+                                }}
+                                className={`hero-node absolute w-4 h-4 rounded-full bg-blue-500/20 blur-sm parallax-layer-${node.layer}`}
+                                style={{
+                                    top: node.top,
+                                    left: node.left,
+                                }}
+                            />
+                        ))}
                     </div>
                 </div>
-            </div>
-
-            {/* Cinematic background elements */}
-            <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
-                <div
-                    ref={bgElement1Ref}
-                    className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]"
-                />
-                <div
-                    ref={bgElement2Ref}
-                    className="absolute bottom-[10%] left-[10%] w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-[100px]"
-                />
             </div>
         </section>
     );

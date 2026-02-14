@@ -5,45 +5,47 @@ import Services from "@/components/Services";
 
 export default function ServicesPage() {
     return (
-        <main className="min-h-screen bg-gray-50/50">
+        <main className="min-h-screen bg-white">
             {/* Header */}
-            <section className="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900" />
+            <section className="bg-slate-900 pt-40 pb-24 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.2)_0%,_transparent_100%)]" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold text-white mb-6"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
                     >
                         Our <span className="text-blue-500">Services</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-400 max-w-2xl mx-auto"
+                        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                        className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light"
                     >
                         Comprehensive solutions tailored to meet the evolving needs of the global market.
+                        Delivering excellence across diverse sectors since 2009.
                     </motion.p>
                 </div>
             </section>
 
-            {/* Services Grid (Reusing Component) */}
-            <div className="-mt-12">
+            {/* Services Grid */}
+            <section className="py-24 bg-gray-50/50 relative z-20">
                 <Services />
-            </div>
+            </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-gray-900 text-white text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/50 via-gray-900 to-gray-900" />
+            <section className="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(37,99,235,0.15)_0%,_transparent_100%)]" />
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to start your journey?</h2>
-                    <p className="text-gray-400 text-lg mb-8">
-                        Contact us today to discuss how we can help you achieve your goals.
+                    <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tight">Ready to start your journey?</h2>
+                    <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                        Contact us today to discuss how we can help you achieve your goals with our professional services and experts.
                     </p>
                     <a
                         href="/contact"
-                        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full transition-all hover:scale-105 shadow-lg shadow-blue-500/30"
+                        className="inline-flex bg-blue-600 hover:bg-blue-700 text-white font-black py-5 px-12 rounded-full transition-all hover:scale-105 shadow-2xl shadow-blue-500/20 uppercase tracking-widest text-sm"
                     >
                         Get a Quote
                     </a>

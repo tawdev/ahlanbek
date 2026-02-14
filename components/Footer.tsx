@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { gsap } from "@/lib/gsap-animations";
 import { useGSAP } from "@/lib/gsap-animations";
+import Logo from "./Logo";
 
 export default function Footer() {
     const footerRef = useRef<HTMLElement>(null);
@@ -79,7 +80,7 @@ export default function Footer() {
     });
 
     return (
-        <footer ref={footerRef} className="bg-white pt-24 pb-12 border-t border-gray-100 relative overflow-hidden">
+        <footer ref={footerRef} className="bg-white pt-24 pb-12 border-t border-gray-100 relative overflow-x-hidden w-full max-w-full">
             {/* Parallax BG Shapes */}
             <div ref={bgShape1Ref} className="absolute -top-10 -left-10 w-64 h-64 bg-blue-50/40 rounded-full blur-3xl -z-10" />
             <div ref={bgShape2Ref} className="absolute bottom-0 -right-10 w-80 h-80 bg-slate-50/50 rounded-full blur-3xl -z-10" />
@@ -88,9 +89,12 @@ export default function Footer() {
                 <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
                     {/* Brand Section */}
                     <div className="lg:col-span-4">
-                        <Link href="/" className="font-bold text-3xl text-blue-600 flex items-center gap-2 mb-6 group">
-                            <span className="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-xl transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">A</span>
-                            <span className="tracking-tighter">Ahlanbek</span>
+                        <Link href="/" className="flex items-center gap-4 mb-8 group">
+                            <Logo variant="silver" className="scale-110 origin-left" />
+                            <div className="flex flex-col">
+                                <span className="text-2xl font-black tracking-tighter text-slate-500 group-hover:text-blue-600 transition-colors">AHLANBEK</span>
+                                <span className="text-[10px] font-bold tracking-[0.3em] text-blue-600/60 uppercase -mt-1">Global Excellence</span>
+                            </div>
                         </Link>
                         <p className="text-gray-500 mb-8 leading-relaxed text-lg">
                             Making your dream become true since 2009. We connect markets, people, and opportunities with quality services and unwavering commitment.

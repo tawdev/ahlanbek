@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@layer base {
+
+  html,
+  body {
+    @apply scroll-smooth cursor-none;
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
+  }
+
+  a,
+  button,
+  [role="button"],
+  .cursor-pointer {
+    @apply cursor-none;
+  }
+}
+
 @theme {
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);

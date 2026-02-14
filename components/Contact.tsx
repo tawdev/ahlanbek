@@ -22,8 +22,9 @@ export default function Contact() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const phoneNumber = "212607790956";
-        const text = `Bonjour Ahlanbek!%0A%0A*Name:* ${formState.name}%0A*Email:* ${formState.email}%0A*Subject:* ${formState.subject}%0A*Message:* ${formState.message}`;
-        window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+        const messageText = `Bonjour Ahlanbek!\n\n*Nom:* ${formState.name}\n*Email:* ${formState.email}\n*Service:* ${formState.subject}\n*Message:* ${formState.message}`;
+        const encodedText = encodeURIComponent(messageText);
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
     };
 
     const services = [

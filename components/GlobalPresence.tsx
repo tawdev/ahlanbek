@@ -2,36 +2,53 @@
 
 import { MapPin, ArrowRight, Globe } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import {
+    ComposableMap,
+    Geographies,
+    Geography,
+    Marker,
+    ZoomableGroup
+} from "react-simple-maps";
+
+const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
 const locations = [
     {
         country: "Munich",
-        address: "Marsstaße 1, 80333 München, Germany",
-        mapLink: "#",
-        coords: { top: "26%", left: "51.5%" }
+        address: "Marsstraße 1, 80333 München, Germany",
+        mapLink: "https://www.google.com/maps/search/?api=1&query=Marsstraße+1,+80333+München,+Germany",
+        coordinates: [11.5583, 48.1425] as [number, number],
     },
     {
         country: "Dubai",
         address: "Business Bay, Dubai, UAE",
-        mapLink: "#",
-        coords: { top: "42%", left: "64%" }
+        mapLink: "https://www.google.com/maps/search/?api=1&query=Business+Bay,+Dubai,+UAE",
+        coordinates: [55.2708, 25.1851] as [number, number],
     },
     {
         country: "London",
-        address: "123 Oxford Street, London, UK",
-        mapLink: "#",
-        coords: { top: "22%", left: "49%" }
+        address: "128 City Road, London, EC1V 2NX, UK",
+        mapLink: "https://www.google.com/maps/search/?api=1&query=128+City+Road,+London,+EC1V+2NX,+UK",
+        coordinates: [-0.0877, 51.5273] as [number, number],
     },
     {
-        country: "Rabat",
-        address: "Avenue Mohammed V, Rabat, Morocco",
-        mapLink: "#",
-        coords: { top: "35%", left: "48%" }
+        country: "Marrakesh",
+        address: "Lot Iguider N48 AV Allal El Fassi, Marrakesh, Morocco",
+        mapLink: "https://www.google.com/maps/search/?api=1&query=Lot+Iguider+N48+AV+Allal+El+Fassi,+Marrakesh,+Morocco",
+        coordinates: [-7.9811, 31.6295] as [number, number],
     },
 ];
 
 export default function GlobalPresence() {
+    const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
             {/* Background decoration */}
@@ -64,15 +81,26 @@ export default function GlobalPresence() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.2 + (index * 0.1) }}
-                                    className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group"
+                                    onMouseEnter={() => setHoveredLocation(loc.country)}
+                                    onMouseLeave={() => setHoveredLocation(null)}
+                                    className={`flex items-start gap-4 p-4 rounded-2xl transition-all border ${hoveredLocation === loc.country
+                                            ? "bg-white/10 border-white/20"
+                                            : "border-transparent hover:bg-white/5 hover:border-white/10"
+                                        } group`}
                                 >
-                                    <div className="mt-1 bg-blue-500/20 p-3 rounded-full text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                    <div className={`mt-1 p-3 rounded-full transition-all ${hoveredLocation === loc.country
+                                            ? "bg-blue-500 text-white"
+                                            : "bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white"
+                                        }`}>
                                         <MapPin size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">{loc.country}</h3>
+                                        <h3 className={`text-xl font-bold transition-colors ${hoveredLocation === loc.country ? "text-blue-300" : "text-white group-hover:text-blue-300"
+                                            }`}>
+                                            {loc.country}
+                                        </h3>
                                         <p className="text-gray-400 mb-3">{loc.address}</p>
-                                        <Link href={loc.mapLink} className="text-sm font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 group/link">
+                                        <Link href={loc.mapLink} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 group/link">
                                             Get Direction <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
                                         </Link>
                                     </div>
@@ -86,32 +114,105 @@ export default function GlobalPresence() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[600px] w-full rounded-[3rem] overflow-hidden bg-gray-800/50 border border-white/10 shadow-2xl"
+                        className="relative h-[600px] w-full rounded-[3rem] overflow-hidden bg-gray-950/50 border border-white/10 shadow-2xl flex items-center justify-center p-4"
                     >
-                        {/* Abstract Map Visualization */}
-                        <div className="absolute inset-0 opacity-30 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-cover bg-center bg-no-repeat grayscale invert" />
-
-                        {/* Pulsing Dots */}
-                        {locations.map((loc, index) => (
-                            <div
-                                key={index}
-                                className="absolute group z-20 cursor-pointer"
-                                style={{ top: loc.coords.top, left: loc.coords.left }}
+                        {/* Real Map Visualization */}
+                        {mounted ? (
+                            <ComposableMap
+                                projectionConfig={{
+                                    scale: 180,
+                                    center: [20, 30]
+                                }}
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                }}
                             >
-                                <div className="relative flex items-center justify-center w-6 h-6 -translate-x-1/2 -translate-y-1/2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500 border-2 border-white transition-transform group-hover:scale-125"></span>
+                                <ZoomableGroup zoom={1} maxZoom={1} center={[20, 30]}>
+                                    <Geographies geography={geoUrl}>
+                                        {({ geographies }: { geographies: any[] }) =>
+                                            geographies.map((geo: any) => (
+                                                <Geography
+                                                    key={geo.rsmKey}
+                                                    geography={geo}
+                                                    fill="#1F2937"
+                                                    stroke="#374151"
+                                                    strokeWidth={0.5}
+                                                    style={{
+                                                        default: { outline: "none" },
+                                                        hover: { fill: "#374151", outline: "none" },
+                                                        pressed: { outline: "none" },
+                                                    }}
+                                                />
+                                            ))
+                                        }
+                                    </Geographies>
 
-                                    {/* Tooltip */}
-                                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-white text-gray-900 text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-xl transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                                        {loc.country}
-                                        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-white"></div>
-                                    </div>
-                                </div>
+                                    {locations.map((loc, index) => (
+                                        <Marker
+                                            key={index}
+                                            coordinates={loc.coordinates}
+                                            onMouseEnter={() => setHoveredLocation(loc.country)}
+                                            onMouseLeave={() => setHoveredLocation(null)}
+                                        >
+                                            <g transform="translate(-12, -12)">
+                                                <motion.circle
+                                                    r="12"
+                                                    className="fill-blue-500/20"
+                                                    animate={{
+                                                        scale: [1, 1.5, 1],
+                                                        opacity: [0.5, 0, 0.5]
+                                                    }}
+                                                    transition={{
+                                                        duration: 2,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut"
+                                                    }}
+                                                />
+                                                <circle
+                                                    r="6"
+                                                    fill="#3B82F6"
+                                                    stroke="#FFFFFF"
+                                                    strokeWidth="2"
+                                                    className="cursor-pointer transition-transform hover:scale-125"
+                                                />
+                                            </g>
+
+                                            {/* Floating Label */}
+                                            <AnimatePresence>
+                                                {hoveredLocation === loc.country && (
+                                                    <motion.g
+                                                        initial={{ opacity: 0, y: 10 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        exit={{ opacity: 0, y: 10 }}
+                                                    >
+                                                        <foreignObject
+                                                            x="-40"
+                                                            y="-45"
+                                                            width="80"
+                                                            height="30"
+                                                        >
+                                                            <div className="flex justify-center">
+                                                                <div className="bg-white text-gray-900 text-[10px] font-bold px-2 py-1 rounded shadow-xl whitespace-nowrap border border-gray-200">
+                                                                    {loc.country}
+                                                                </div>
+                                                            </div>
+                                                        </foreignObject>
+                                                    </motion.g>
+                                                )}
+                                            </AnimatePresence>
+                                        </Marker>
+                                    ))}
+                                </ZoomableGroup>
+                            </ComposableMap>
+                        ) : (
+                            <div className="animate-pulse flex flex-col items-center gap-4">
+                                <Globe size={48} className="text-gray-700" />
+                                <p className="text-gray-600 text-sm font-medium">Loading World Map...</p>
                             </div>
-                        ))}
+                        )}
 
-                        <div className="absolute bottom-8 left-8 right-8 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                        <div className="absolute bottom-8 left-8 right-8 bg-black/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 z-20">
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-gray-400 text-sm uppercase tracking-wider mb-1">Total Offices</p>

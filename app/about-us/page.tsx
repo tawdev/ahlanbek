@@ -10,7 +10,7 @@ export default function AboutPage() {
             {/* Header */}
             <section className="bg-slate-900 pt-40 pb-24 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.2)_0%,_transparent_100%)]" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export default function AboutPage() {
 
             {/* Story Section */}
             <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
             {/* Mission */}
             <section className="py-24 bg-white text-center">
-                <div className="max-w-4xl mx-auto px-4">
+                <div className="max-w-4xl 3xl:max-w-[1200px] 4xl:max-w-[1400px] mx-auto px-4">
                     <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">Our Mission</h2>
                     <p className="text-2xl text-gray-600 font-light italic leading-relaxed">
                         "To provide world-class services that empower businesses and individuals to thrive in a connected world, upholding the values of integrity, innovation, and excellence in everything we do."

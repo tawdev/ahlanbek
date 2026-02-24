@@ -77,7 +77,7 @@ export default function About() {
             {/* Background elements */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_20%,_rgba(37,99,235,0.03)_0%,_transparent_50%)]" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
                     {/* Left Text Content */}
                     <div className="order-2 lg:order-1 space-y-10">

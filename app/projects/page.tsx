@@ -37,7 +37,7 @@ export default function ProjectsPage() {
             {/* Header */}
             <section className="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -67,7 +67,7 @@ export default function ProjectsPage() {
 
             {/* Category Filter */}
             <section className="py-8 sticky top-20 z-40 bg-gray-50/80 backdrop-blur-md border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-center gap-3">
                         {categories.map((category, index) => (
                             <motion.button
@@ -90,7 +90,7 @@ export default function ProjectsPage() {
 
             {/* Projects Grid */}
             <section className="py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         layout
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -174,7 +174,7 @@ export default function ProjectsPage() {
             {/* CTA Section */}
             <section className="py-24 bg-gray-900 text-white text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/50 via-gray-900 to-gray-900" />
-                <div className="relative z-10 max-w-4xl mx-auto px-4">
+                <div className="relative z-10 max-w-4xl 3xl:max-w-[1200px] 4xl:max-w-[1400px] mx-auto px-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

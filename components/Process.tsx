@@ -70,7 +70,7 @@ export default function Process() {
 
     return (
         <section ref={sectionRef} className="py-24 bg-white relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-20">
                     <span className="inline-block text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4">
                         Workflow

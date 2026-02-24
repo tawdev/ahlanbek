@@ -156,7 +156,7 @@ export default function Founders() {
 
     return (
         <section ref={sectionRef} className="py-24 bg-white overflow-hidden" id="founders">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <span
                         ref={subtitleRef}

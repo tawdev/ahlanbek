@@ -113,7 +113,7 @@ export default function GlobalPresence() {
             {/* Background decoration */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Left Content */}
                     <div className="presence-content space-y-8">
@@ -137,14 +137,14 @@ export default function GlobalPresence() {
                                     onMouseEnter={() => setHoveredLocation(loc.country)}
                                     onMouseLeave={() => setHoveredLocation(null)}
                                     className={`flex items-start gap-4 p-4 rounded-2xl transition-all border ${hoveredLocation === loc.country
-                                            ? "bg-white/10 border-white/20 translate-x-2"
-                                            : "border-transparent hover:bg-white/5 hover:border-white/10"
+                                        ? "bg-white/10 border-white/20 translate-x-2"
+                                        : "border-transparent hover:bg-white/5 hover:border-white/10"
                                         } group cursor-pointer`}
                                     onClick={() => window.open(loc.mapLink, '_blank')}
                                 >
                                     <div className={`mt-1 p-3 rounded-xl transition-all ${hoveredLocation === loc.country
-                                            ? "bg-blue-500 text-white"
-                                            : "bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white"
+                                        ? "bg-blue-500 text-white"
+                                        : "bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white"
                                         }`}>
                                         <MapPin size={24} />
                                     </div>

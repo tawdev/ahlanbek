@@ -209,7 +209,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white w-full" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full overflow-hidden">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full overflow-hidden">
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     {/* Left Content */}
                     <div ref={contentRef} className="text-left col-span-12 lg:col-span-7">

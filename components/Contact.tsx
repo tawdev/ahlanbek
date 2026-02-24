@@ -175,7 +175,7 @@ export default function Contact() {
                 className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] bg-blue-50/50 rounded-full blur-[120px] -z-10"
             />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
                     {/* Left Side: Contact Form */}
                     <div ref={formContainerRef} className="bg-gray-50/50 p-8 md:p-12 rounded-[40px] border border-gray-100 backdrop-blur-sm shadow-sm">

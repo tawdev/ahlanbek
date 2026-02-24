@@ -70,7 +70,7 @@ export default function Projects() {
 
     return (
         <section className="py-24 bg-white" id="projects">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-16">
                     <span className="inline-block text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 bg-blue-50 px-4 py-1 rounded-full border border-blue-100">
                         Portfolio

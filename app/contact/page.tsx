@@ -181,7 +181,7 @@ export default function ContactPage() {
             {/* Header */}
             <section className="bg-slate-950 pt-32 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-950 to-slate-950" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -201,7 +201,7 @@ export default function ContactPage() {
             </section>
 
             <section className="py-24">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <Suspense fallback={<div className="h-96 flex items-center justify-center font-bold text-2xl text-slate-400 animate-pulse">Loading Contact Form...</div>}>
                         <ContactForm />
                     </Suspense>

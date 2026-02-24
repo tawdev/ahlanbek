@@ -118,7 +118,7 @@ export default function Services() {
 
     return (
         <section ref={sectionRef} className="py-24 bg-gray-50/50" id="services">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div ref={headerRef} className="text-center mb-20 space-y-4">
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}

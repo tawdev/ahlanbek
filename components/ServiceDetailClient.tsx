@@ -50,7 +50,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                     <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900" />
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <motion.div
@@ -127,7 +127,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
 
             {/* Features Section */}
             <section className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
 
             {/* Process Section */}
             <section className="py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +212,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
 
             {/* Benefits Section */}
             <section className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -264,7 +264,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
             {/* CTA Section */}
             <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/50 via-gray-900 to-gray-900" />
-                <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                <div className="relative z-10 max-w-4xl 3xl:max-w-[1200px] 4xl:max-w-[1400px] mx-auto px-4 text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

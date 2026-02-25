@@ -30,9 +30,9 @@ export default function Navbar() {
     const effectiveScrolled = scrolled;
 
     const textColor = effectiveScrolled ? "text-slate-900" : isDarkHeader ? "text-white" : "text-slate-900";
-    const logoColor = effectiveScrolled ? "text-blue-600" : isDarkHeader ? "text-white" : "text-blue-600";
-    const hoverColor = effectiveScrolled ? "hover:text-blue-600" : isDarkHeader ? "hover:text-blue-200" : "hover:text-blue-600";
-    const buttonBg = effectiveScrolled ? "bg-blue-600 text-white hover:bg-blue-700" : isDarkHeader ? "bg-white text-blue-600 hover:bg-gray-100" : "bg-blue-600 text-white hover:bg-blue-700";
+    const logoColor = effectiveScrolled ? "text-primary" : isDarkHeader ? "text-white" : "text-primary";
+    const hoverColor = effectiveScrolled ? "hover:text-primary" : isDarkHeader ? "hover:text-amber-200" : "hover:text-primary";
+    const buttonBg = effectiveScrolled ? "bg-primary text-white hover:bg-primary/90" : isDarkHeader ? "bg-white text-primary hover:bg-gray-100" : "bg-primary text-white hover:bg-primary/90";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -83,9 +83,7 @@ export default function Navbar() {
                                 showText={false}
                                 className="scale-75 sm:scale-100 origin-left"
                             />
-                            <span className={`text-xl font-black tracking-tighter ${effectiveScrolled ? "text-slate-500" : (isDarkHeader ? "text-slate-300" : "text-slate-500")}`}>
-                                AHLANBEK
-                            </span>
+
                         </Link>
                     </div>
 

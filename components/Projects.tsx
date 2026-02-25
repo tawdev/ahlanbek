@@ -72,7 +72,7 @@ export default function Projects() {
         <section className="py-24 bg-white" id="projects">
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-16">
-                    <span className="inline-block text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 bg-blue-50 px-4 py-1 rounded-full border border-blue-100">
+                    <span className="inline-block text-primary font-bold uppercase tracking-widest text-sm mb-4 bg-amber-50 px-4 py-1 rounded-full border border-amber-100">
                         Portfolio
                     </span>
                     <SplitTextReveal className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter">
@@ -91,17 +91,17 @@ export default function Projects() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                                 <div className="absolute top-4 right-4">
-                                    <span className="px-3 py-1 bg-blue-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full">
+                                    <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-white text-xs font-bold rounded-full">
                                         {project.category}
                                     </span>
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                                     {project.title}
                                 </h4>
                                 <div className="flex items-center gap-2 text-gray-500">
-                                    <MapPin size={18} className="text-blue-500" />
+                                    <MapPin size={18} className="text-primary" />
                                     <span className="text-sm font-medium">{project.location}</span>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ export default function Projects() {
                 </div>
 
                 <div className="text-center">
-                    <Link href="/projects" className="inline-flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors">
+                    <Link href="/projects" className="inline-flex items-center gap-2 text-primary font-bold hover:text-amber-600 transition-colors">
                         View All Projects
                         <ArrowRight size={20} />
                     </Link>

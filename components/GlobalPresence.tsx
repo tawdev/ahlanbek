@@ -111,19 +111,19 @@ export default function GlobalPresence() {
     return (
         <section ref={containerRef} className="py-24 bg-gray-900 text-white relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-gray-900 to-gray-900" />
 
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Left Content */}
                     <div className="presence-content space-y-8">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-500/20">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20">
                                 <Globe size={14} /> Global Reach
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                                 Transform Communities <br />
-                                Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Globe</span>
+                                Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600">Globe</span>
                             </h2>
                             <p className="text-xl text-gray-400 leading-relaxed font-light">
                                 We have established a strong presence in key international markets to better serve our clients and partners with local expertise and global standards.
@@ -143,18 +143,18 @@ export default function GlobalPresence() {
                                     onClick={() => window.open(loc.mapLink, '_blank')}
                                 >
                                     <div className={`mt-1 p-3 rounded-xl transition-all ${hoveredLocation === loc.country
-                                        ? "bg-blue-500 text-white"
-                                        : "bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white"
+                                        ? "bg-primary text-white"
+                                        : "bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white"
                                         }`}>
                                         <MapPin size={24} />
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2">
-                                            <h3 className={`text-xl font-bold transition-colors ${hoveredLocation === loc.country ? "text-blue-300" : "text-white group-hover:text-blue-300"
+                                            <h3 className={`text-xl font-bold transition-colors ${hoveredLocation === loc.country ? "text-amber-300" : "text-white group-hover:text-amber-300"
                                                 }`}>
                                                 {loc.country}
                                             </h3>
-                                            {loc.main && <span className="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[10px] font-black rounded-md border border-blue-500/30 uppercase tracking-tighter">HQ</span>}
+                                            {loc.main && <span className="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-black rounded-md border border-primary/30 uppercase tracking-tighter">HQ</span>}
                                         </div>
                                         <p className="text-gray-400 text-sm">{loc.address}</p>
                                     </div>
@@ -202,12 +202,12 @@ export default function GlobalPresence() {
                                     <g className="group cursor-pointer">
                                         <circle
                                             r={loc.main ? 10 : 6}
-                                            fill={loc.main ? "rgba(59, 130, 246, 0.4)" : "rgba(59, 130, 246, 0.2)"}
+                                            fill={loc.main ? "rgba(212, 175, 55, 0.4)" : "rgba(212, 175, 55, 0.2)"}
                                             className="animate-ping"
                                         />
                                         <circle
                                             r={loc.main ? 5 : 3}
-                                            fill="#3B82FB"
+                                            fill="#D4AF37"
                                             stroke="#FFFFFF"
                                             strokeWidth={1.5}
                                         />

@@ -88,7 +88,7 @@ const FounderCard = ({ name, position, description, image }: FounderCardProps) =
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80 pointer-events-none" />
             </div>
             <div className="p-8 flex-grow">
-                <span className="text-blue-600 font-bold text-sm uppercase tracking-widest mb-2 block">{position}</span>
+                <span className="text-primary font-bold text-sm uppercase tracking-widest mb-2 block">{position}</span>
                 <h4 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">{name}</h4>
                 {description && (
                     <p className="text-gray-500 leading-relaxed font-light text-sm italic">
@@ -160,7 +160,7 @@ export default function Founders() {
                 <div className="text-center mb-16">
                     <span
                         ref={subtitleRef}
-                        className="inline-block text-blue-600 font-bold uppercase tracking-[0.2em] text-xs mb-4 opacity-0"
+                        className="inline-block text-primary font-bold uppercase tracking-[0.2em] text-xs mb-4 opacity-0"
                     >
                         About Founders
                     </span>

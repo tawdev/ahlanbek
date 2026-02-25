@@ -75,14 +75,14 @@ export default function About() {
     return (
         <section ref={containerRef} className="py-32 bg-white overflow-x-hidden relative" id="about">
             {/* Background elements */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_20%,_rgba(37,99,235,0.03)_0%,_transparent_50%)]" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_20%,_rgba(212,175,55,0.03)_0%,_transparent_50%)]" />
 
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
                     {/* Left Text Content */}
                     <div className="order-2 lg:order-1 space-y-10">
                         <div className="about-content-item">
-                            <span className="inline-block text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 px-3 py-1 bg-blue-50 rounded-full border border-blue-100">
+                            <span className="inline-block text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-4 px-3 py-1 bg-amber-50 rounded-full border border-amber-100">
                                 Our Story
                             </span>
                             <SplitTextReveal className="text-5xl sm:text-7xl font-black text-gray-900 leading-[0.95] tracking-tighter mb-8">
@@ -102,11 +102,11 @@ export default function About() {
                                 { title: "Global Standards", desc: "Uncompromising attention to detail." }
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-6 group">
-                                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:rotate-12 transition-all duration-500">
-                                        <CheckCircle2 size={24} className="text-blue-600 group-hover:text-white transition-colors duration-300" />
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center group-hover:bg-primary group-hover:rotate-12 transition-all duration-500">
+                                        <CheckCircle2 size={24} className="text-primary group-hover:text-white transition-colors duration-300" />
                                     </div>
                                     <div>
-                                        <h4 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{item.title}</h4>
+                                        <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">{item.title}</h4>
                                         <p className="text-gray-400 font-medium">{item.desc}</p>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@ export default function About() {
                         <div className="about-content-item pt-8">
                             <Link
                                 href="/about-us"
-                                className="group relative inline-flex items-center gap-4 px-10 py-5 bg-gray-900 text-white rounded-2xl font-black hover:bg-blue-600 transition-all duration-500 shadow-2xl shadow-gray-900/10 active:scale-95"
+                                className="group relative inline-flex items-center gap-4 px-10 py-5 bg-gray-900 text-white rounded-2xl font-black hover:bg-primary transition-all duration-500 shadow-2xl shadow-gray-900/10 active:scale-95"
                             >
                                 Discover Our Journey
                                 <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-500" />
@@ -135,7 +135,7 @@ export default function About() {
                                 alt="Our Story"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-blue-900/5 mix-blend-overlay" />
+                            <div className="absolute inset-0 bg-amber-900/5 mix-blend-overlay" />
                         </div>
 
                         <div
@@ -147,11 +147,11 @@ export default function About() {
                                 alt="Empowering Success"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
                         </div>
 
                         {/* Decorative background circle */}
-                        <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl -z-10 animate-pulse" />
+                        <div className="absolute -top-10 -right-10 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl -z-10 animate-pulse" />
                     </div>
                 </div>
             </div>

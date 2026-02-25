@@ -42,7 +42,7 @@ export default function Preloader() {
                 <div className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden">
                     {/* Background Layers */}
                     <div className="preloader-bg absolute inset-0 bg-slate-900 z-10" />
-                    <div className="preloader-bg absolute inset-0 bg-blue-600 z-0" />
+                    <div className="preloader-bg absolute inset-0 bg-amber-600 z-0" />
 
                     <div className="relative z-20 flex flex-col items-center">
                         <motion.div

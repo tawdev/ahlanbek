@@ -136,8 +136,8 @@ export default function Contact() {
         inputs?.forEach(input => {
             input.addEventListener("focus", () => {
                 gsap.to(input, {
-                    boxShadow: "0 0 15px rgba(37, 99, 235, 0.2)",
-                    borderColor: "#2563eb",
+                    boxShadow: "0 0 15px rgba(212, 175, 55, 0.2)",
+                    borderColor: "#D4AF37",
                     duration: 0.3
                 });
             });
@@ -172,7 +172,7 @@ export default function Contact() {
             {/* Animated Background Gradient */}
             <div
                 ref={bgGradientRef}
-                className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] bg-blue-50/50 rounded-full blur-[120px] -z-10"
+                className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] bg-amber-50/50 rounded-full blur-[120px] -z-10"
             />
 
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -233,7 +233,7 @@ export default function Contact() {
                             <button
                                 ref={buttonRef}
                                 type="submit"
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-2xl shadow-blue-500/25 active:scale-95"
+                                className="w-full bg-primary hover:bg-amber-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-2xl shadow-primary/25 active:scale-95"
                             >
                                 <Send size={22} strokeWidth={2.5} />
                                 <span className="text-lg">Send via WhatsApp</span>
@@ -244,7 +244,7 @@ export default function Contact() {
                     {/* Right Side: Contact Info */}
                     <div ref={infoContainerRef} className="lg:py-8 space-y-12">
                         <div>
-                            <span className="inline-block text-blue-600 font-bold uppercase tracking-widest text-xs mb-4">Get in touch</span>
+                            <span className="inline-block text-primary font-bold uppercase tracking-widest text-xs mb-4">Get in touch</span>
                             <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 tracking-tighter">Contact Information</h2>
                             <p className="text-gray-500 text-xl font-light leading-relaxed max-w-md">
                                 Have a question or want to work together? Drop us a line and we'll get back to you within 24 hours.
@@ -257,19 +257,19 @@ export default function Contact() {
                                     icon: MapPin,
                                     title: "Our Headquarter",
                                     desc: "Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco",
-                                    color: "bg-blue-50 text-blue-600"
+                                    color: "bg-amber-50 text-primary"
                                 },
                                 {
                                     icon: Phone,
                                     title: "Phone Number",
                                     desc: "+212 607 790 956",
-                                    color: "bg-indigo-50 text-indigo-600"
+                                    color: "bg-amber-100 text-[#B8860B]"
                                 },
                                 {
                                     icon: Mail,
                                     title: "Email Address",
                                     desc: "contact@ahlanbek.com",
-                                    color: "bg-sky-50 text-sky-600"
+                                    color: "bg-amber-50 text-[#DAA520]"
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="info-item flex items-start gap-6 group">
@@ -285,7 +285,7 @@ export default function Contact() {
                         </div>
 
                         {/* Decorative Line */}
-                        <div className="w-20 h-1.5 bg-blue-600 rounded-full" />
+                        <div className="w-20 h-1.5 bg-primary rounded-full" />
                     </div>
                 </div>
             </div>

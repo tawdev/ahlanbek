@@ -114,7 +114,7 @@ export default function Testimonials() {
                 <div className="relative max-w-4xl mx-auto">
                     {/* Testimonial Card */}
                     <div className="bg-gray-50 p-12 md:p-16 rounded-[3rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative overflow-hidden group">
-                        <Quote className="absolute top-10 right-10 w-20 h-20 text-blue-100 -rotate-12 transition-transform group-hover:rotate-0 duration-700" size={80} />
+                        <Quote className="absolute top-10 right-10 w-20 h-20 text-amber-100 -rotate-12 transition-transform group-hover:rotate-0 duration-700" size={80} />
 
                         <div ref={textRef} className="relative z-10">
                             <div className="flex gap-1 text-yellow-500 mb-8">
@@ -128,12 +128,12 @@ export default function Testimonials() {
                             </p>
 
                             <div className="flex items-center gap-6">
-                                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
                                     {item.name.charAt(0)}
                                 </div>
                                 <div>
                                     <h4 className="font-black text-gray-900 text-xl">{item.name}</h4>
-                                    <p className="text-blue-600 font-bold uppercase tracking-widest text-sm">{item.role}</p>
+                                    <p className="text-primary font-bold uppercase tracking-widest text-sm">{item.role}</p>
                                 </div>
                             </div>
                         </div>
@@ -143,13 +143,13 @@ export default function Testimonials() {
                     <div className="flex justify-center gap-6 mt-12">
                         <button
                             onClick={prevSlide}
-                            className="magnetic-nav w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 transition-colors shadow-lg bg-white"
+                            className="magnetic-nav w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-colors shadow-lg bg-white"
                         >
                             <ArrowLeft size={24} />
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="magnetic-nav w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors shadow-xl shadow-blue-500/20"
+                            className="magnetic-nav w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white hover:bg-amber-600 transition-colors shadow-xl shadow-primary/20"
                         >
                             <ArrowRight size={24} />
                         </button>

@@ -82,8 +82,8 @@ export default function Footer() {
     return (
         <footer ref={footerRef} className="bg-white pt-24 pb-12 border-t border-gray-100 relative overflow-x-hidden w-full max-w-full">
             {/* Parallax BG Shapes */}
-            <div ref={bgShape1Ref} className="absolute -top-10 -left-10 w-64 h-64 bg-blue-50/40 rounded-full blur-3xl -z-10" />
-            <div ref={bgShape2Ref} className="absolute bottom-0 -right-10 w-80 h-80 bg-slate-50/50 rounded-full blur-3xl -z-10" />
+            <div ref={bgShape1Ref} className="absolute -top-10 -left-10 w-64 h-64 bg-amber-50/40 rounded-full blur-3xl -z-10" />
+            <div ref={bgShape2Ref} className="absolute bottom-0 -right-10 w-80 h-80 bg-amber-50/50 rounded-full blur-3xl -z-10" />
 
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
@@ -92,8 +92,8 @@ export default function Footer() {
                         <Link href="/" className="flex items-center gap-4 mb-8 group">
                             <Logo variant="silver" className="scale-110 origin-left" />
                             <div className="flex flex-col">
-                                <span className="text-2xl font-black tracking-tighter text-slate-500 group-hover:text-blue-600 transition-colors">AHLANBEK</span>
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-blue-600/60 uppercase -mt-1">Global Excellence</span>
+                                <span className="text-2xl font-black tracking-tighter text-slate-500 group-hover:text-primary transition-colors">AHLANBEK</span>
+                                <span className="text-[10px] font-bold tracking-[0.3em] text-primary/60 uppercase -mt-1">Global Excellence</span>
                             </div>
                         </Link>
                         <p className="text-gray-500 mb-8 leading-relaxed text-lg">
@@ -104,7 +104,7 @@ export default function Footer() {
                                 <Link
                                     key={i}
                                     href="#"
-                                    className="social-icon w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                                    className="social-icon w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
                                 >
                                     <Icon size={18} />
                                 </Link>
@@ -120,7 +120,7 @@ export default function Footer() {
                                 <li key={item}>
                                     <Link
                                         href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                                        className="text-gray-500 hover:text-blue-600 transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1"
+                                        className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1"
                                     >
                                         {item}
                                         <ArrowUpRight size={14} className="opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
@@ -136,7 +136,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {["Investment", "Real Estate", "Tourism", "Import & Export"].map((item) => (
                                 <li key={item}>
-                                    <Link href="#" className="text-gray-500 hover:text-blue-600 transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1">
+                                    <Link href="#" className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1">
                                         {item}
                                     </Link>
                                 </li>
@@ -154,7 +154,7 @@ export default function Footer() {
                                 { icon: Mail, text: "contact@ahlanbek.com" }
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4 group">
-                                    <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                                    <div className="p-2 bg-amber-50 text-primary rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                                         <item.icon size={20} />
                                     </div>
                                     <span className="text-gray-500 transition-colors group-hover:text-gray-900">{item.text}</span>
@@ -169,8 +169,8 @@ export default function Footer() {
                         &copy; {new Date().getFullYear()} cdigital. All rights reserved.
                     </p>
                     <div className="flex gap-8 text-sm text-gray-400">
-                        <Link href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-blue-600 transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
                     </div>
                 </div>
             </div>

@@ -194,9 +194,9 @@ export default function Hero() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 w-full">
                 <div className="parallax-layer-1 absolute inset-0 bg-white w-full" />
                 {/* Subtle Metallic Gradients for Light Mode */}
-                <div ref={bgElement1Ref} className="parallax-layer-2 absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[140px] opacity-40 max-w-none" />
+                <div ref={bgElement1Ref} className="parallax-layer-2 absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-amber-100/30 rounded-full blur-[140px] opacity-40 max-w-none" />
                 <div ref={bgElement2Ref} className="parallax-layer-3 absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] bg-slate-100/40 rounded-full blur-[120px] opacity-50 max-w-none" />
-                <div className="absolute top-[20%] left-[30%] w-[400px] h-[400px] bg-blue-50/20 rounded-full blur-[100px] animate-pulse max-w-none" />
+                <div className="absolute top-[20%] left-[30%] w-[400px] h-[400px] bg-amber-50/20 rounded-full blur-[100px] animate-pulse max-w-none" />
 
                 {/* Abstract Grid Overlay (Darker dots for light background) */}
                 <div className="absolute inset-0 opacity-[0.05] w-full"
@@ -213,17 +213,7 @@ export default function Hero() {
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     {/* Left Content */}
                     <div ref={contentRef} className="text-left col-span-12 lg:col-span-7">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100/80 backdrop-blur-sm border border-slate-200 rounded-full mb-8 shadow-sm group hover:bg-slate-200 transition-colors cursor-default"
-                        >
-                            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-                            <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-slate-600">
-                                We Are Leading International Company In The World
-                            </span>
-                        </motion.div>
+
 
                         <div className="relative">
                             <SplitTextReveal
@@ -261,7 +251,7 @@ export default function Hero() {
                                     Our Services
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                <div className="absolute inset-0 bg-blue-600 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
+                                <div className="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
                             </Link>
 
                             <Link
@@ -269,7 +259,7 @@ export default function Hero() {
                                 className="group px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-3 text-lg hover:border-gray-300 w-full sm:w-auto"
                             >
                                 Contact Us
-                                <ChevronRight size={20} className="text-blue-600 group-hover:text-blue-500 transition-colors" />
+                                <ChevronRight size={20} className="text-primary group-hover:text-amber-500 transition-colors" />
                             </Link>
                         </div>
 
@@ -281,7 +271,7 @@ export default function Hero() {
                                 { icon: Zap, label: "Fast Supply" }
                             ].map((item, i) => (
                                 <div key={i} className="flex flex-col gap-2 hero-node">
-                                    <item.icon className="text-blue-600 w-6 h-6" />
+                                    <item.icon className="text-primary w-6 h-6" />
                                     <span className="text-sm text-gray-500 font-medium uppercase tracking-wider">{item.label}</span>
                                 </div>
                             ))}
@@ -311,7 +301,7 @@ export default function Hero() {
                                 alt="Modern Office"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-blue-600/10 mix-blend-overlay" />
+                            <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
                         </div>
 
                         {/* Floating 3D Elements */}
@@ -328,7 +318,7 @@ export default function Hero() {
                                     delay: node.delay,
                                     ease: "easeInOut"
                                 }}
-                                className={`hero-node absolute w-4 h-4 rounded-full bg-blue-500/20 blur-sm parallax-layer-${node.layer}`}
+                                className={`hero-node absolute w-4 h-4 rounded-full bg-primary/20 blur-sm parallax-layer-${node.layer}`}
                                 style={{
                                     top: node.top,
                                     left: node.left,

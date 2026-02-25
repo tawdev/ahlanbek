@@ -10,7 +10,7 @@ const steps = [
         id: "01",
         title: "Strategy & Consultation",
         description: "We begin by deeply understanding your vision and market potential, crafting a tailored roadmap for your success.",
-        color: "bg-blue-600",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
     },
     {
@@ -24,14 +24,14 @@ const steps = [
         id: "03",
         title: "Execution & Management",
         description: "We deploy resources with precision, managing every operational detail to ensure your project's seamless realization.",
-        color: "bg-blue-500",
+        color: "bg-amber-600",
         image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
     },
     {
         id: "04",
         title: "Growth & Optimization",
         description: "Post-launch, we continuously monitor and refine your operations to maximize efficiency and sustainable long-term growth.",
-        color: "bg-indigo-600",
+        color: "bg-slate-800",
         image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
     }
 ];
@@ -72,7 +72,7 @@ export default function Process() {
         <section ref={sectionRef} className="py-24 bg-white relative">
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-20">
-                    <span className="inline-block text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4">
+                    <span className="inline-block text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-4">
                         Workflow
                     </span>
                     <SplitTextReveal className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter leading-[0.9]">
@@ -100,7 +100,7 @@ export default function Process() {
                                         {step.description}
                                     </p>
                                     <div className="mt-12 flex items-center gap-4 group cursor-pointer w-fit">
-                                        <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-blue-600">
+                                        <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-primary">
                                             <span className="text-sm font-bold">→</span>
                                         </div>
                                         <span className="text-sm font-bold uppercase tracking-widest">Explore Stage</span>

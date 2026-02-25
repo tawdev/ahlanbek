@@ -15,7 +15,7 @@ const services = [
         title: "L'investissement",
         slug: "investment",
         description: "From concept to execution, we create memorable events that inspire, engage, and leave a lasting impression.",
-        color: "bg-blue-500",
+        color: "bg-[#D4AF37]",
         image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop",
     },
     {
@@ -23,7 +23,7 @@ const services = [
         title: "L'immobilier",
         slug: "real-estate",
         description: "Connecting you to the best properties and investment opportunities with trust, transparency, and expertise.",
-        color: "bg-indigo-500",
+        color: "bg-[#B8860B]",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
     },
     {
@@ -31,7 +31,7 @@ const services = [
         title: "Tourism",
         slug: "tourism",
         description: "Discover exceptional travel experiences, guided tours, and unique adventures that showcase the beauty of each destination.",
-        color: "bg-sky-500",
+        color: "bg-[#DAA520]",
         image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop",
     },
     {
@@ -39,7 +39,7 @@ const services = [
         title: "Management",
         slug: "management",
         description: "Professional management services designed to streamline operations, optimize resources, and achieve sustainable growth.",
-        color: "bg-violet-500",
+        color: "bg-[#CD7F32]",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
     },
     {
@@ -47,7 +47,7 @@ const services = [
         title: "Import & Export",
         slug: "import-export",
         description: "Facilitating global trade with reliable import and export solutions that connect markets and drive business success.",
-        color: "bg-cyan-500",
+        color: "bg-[#996515]",
         image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
     },
     {
@@ -55,7 +55,7 @@ const services = [
         title: "Web & App Development",
         slug: "web-development",
         description: "Innovative web and mobile applications designed to enhance your digital presence, boost user engagement, and drive business growth.",
-        color: "bg-teal-500",
+        color: "bg-[#D4AC0D]",
         image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
     },
 ];
@@ -124,12 +124,12 @@ export default function Services() {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-xs font-black text-blue-600 uppercase tracking-[0.4em] bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100 inline-block"
+                        className="text-xs font-black text-primary uppercase tracking-[0.4em] bg-amber-50 px-4 py-1.5 rounded-full border border-amber-100 inline-block"
                     >
                         Our Capabilities
                     </motion.span>
                     <h2 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter">
-                        Quality <span className="text-blue-600">Services</span>
+                        Quality <span className="text-primary">Services</span>
                     </h2>
                 </div>
 
@@ -146,7 +146,7 @@ export default function Services() {
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             whileHover={{ y: -10, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="bg-white rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 group relative overflow-hidden h-[450px] flex flex-col justify-end p-10 cursor-pointer"
+                            className="bg-white rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 group relative overflow-hidden h-[450px] flex flex-col justify-end p-10 cursor-pointer"
                         >
                             {/* Background Image with Hover Parallax */}
                             <div className="absolute inset-0 z-0">
@@ -177,7 +177,7 @@ export default function Services() {
                                 {service.description}
                             </p>
 
-                            <Link href={`/services/${service.slug}`} className="inline-flex items-center text-white font-black group-hover:text-blue-400 transition-colors relative z-10 tracking-widest uppercase text-xs">
+                            <Link href={`/services/${service.slug}`} className="inline-flex items-center text-white font-black group-hover:text-primary transition-colors relative z-10 tracking-widest uppercase text-xs">
                                 Discover More
                                 <motion.div
                                     animate={{ x: [0, 5, 0] }}

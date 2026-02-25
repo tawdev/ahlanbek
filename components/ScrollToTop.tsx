@@ -67,11 +67,11 @@ export default function ScrollToTop() {
                         cy="50"
                         r="40"
                         fill="transparent"
-                        stroke="#2563eb" // Glass Brand Blue
+                        stroke="#D4AF37" // Metallic Gold
                         strokeWidth="4"
                         strokeDasharray="0 1"
                         style={{ pathLength: scaleProgress }}
-                        className="drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]"
+                        className="drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]"
                     />
                 </svg>
 
@@ -81,7 +81,7 @@ export default function ScrollToTop() {
                 </div>
 
                 {/* Subtle glow on hover */}
-                <div className="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-500/5 transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-full bg-amber-500/0 group-hover:bg-amber-500/5 transition-colors duration-300" />
             </div>
         </motion.button>
     );

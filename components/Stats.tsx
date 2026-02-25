@@ -44,11 +44,11 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
         <span className="tabular-nums relative inline-block">
             <span
                 ref={countRef}
-                className="bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-[length:200%_auto] text-transparent bg-clip-text"
+                className="bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 bg-[length:200%_auto] text-transparent bg-clip-text"
             >
                 0
             </span>
-            <span className="text-blue-600">{suffix}</span>
+            <span className="text-amber-600">{suffix}</span>
         </span>
     );
 }
@@ -83,8 +83,8 @@ export default function Stats() {
                 const onEnter = () => {
                     gsap.to(card, {
                         y: -8,
-                        boxShadow: "0 20px 40px rgba(37, 99, 235, 0.1)",
-                        borderColor: "rgba(37, 99, 235, 0.2)",
+                        boxShadow: "0 20px 40px rgba(212, 175, 55, 0.1)",
+                        borderColor: "rgba(212, 175, 55, 0.2)",
                         duration: 0.4,
                         ease: "power2.out"
                     });
@@ -106,7 +106,7 @@ export default function Stats() {
 
     return (
         <section className="py-20 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-50/50 via-transparent to-transparent opacity-50" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-50/50 via-transparent to-transparent opacity-50" />
 
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -115,7 +115,7 @@ export default function Stats() {
                             key={index}
                             className="text-center p-8 bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:shadow-2xl transition-all duration-300"
                         >
-                            <h3 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-blue-600 mb-2">
+                            <h3 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-amber-600 mb-2">
                                 <Counter value={stat.value} suffix={stat.suffix} />
                             </h3>
                             <p className="text-lg font-bold text-gray-800 mb-1">{stat.label}</p>

@@ -16,7 +16,7 @@ export default function WhatsappContact() {
     const toggleChat = () => setIsOpen(!isOpen);
 
     // Ahlanbek Brand Color
-    const themeColor = "#2563eb"; // Brand Blue
+    const themeColor = "#D4AF37"; // Brand Gold
 
     const t = {
         title: "Support Ahlanbek",
@@ -51,7 +51,7 @@ export default function WhatsappContact() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
                     >
-                        <div className="p-6 text-white" style={{ background: `linear-gradient(135deg, ${themeColor} 0%, #1e40af 100%)` }}>
+                        <div className="p-6 text-white" style={{ background: `linear-gradient(135deg, ${themeColor} 0%, #B8860B 100%)` }}>
                             <div className="flex items-center gap-4">
                                 <div className="bg-white/20 p-2 rounded-full backdrop-blur-md">
                                     <FaWhatsapp size={24} />
@@ -94,7 +94,7 @@ export default function WhatsappContact() {
                 <motion.button
                     onClick={toggleChat}
                     className="relative w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-white overflow-hidden cursor-pointer"
-                    style={{ background: isOpen ? '#ef4444' : `linear-gradient(135deg, ${themeColor} 0%, #1e40af 100%)` }}
+                    style={{ background: isOpen ? '#ef4444' : `linear-gradient(135deg, ${themeColor} 0%, #B8860B 100%)` }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     animate={{ rotate: isOpen ? 0 : [0, -5, 5, -5, 0] }}

@@ -262,7 +262,7 @@ export default function Contact() {
                                 {
                                     icon: Phone,
                                     title: "Phone Number",
-                                    desc: "+212 607 790 956",
+                                    desc: "+212 607 790 956 / +212 524 308 038",
                                     color: "bg-amber-100 text-[#B8860B]"
                                 },
                                 {

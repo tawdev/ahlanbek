@@ -30,7 +30,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         subtitle: "L'investissement",
         description: "From concept to execution, we create memorable events that inspire, engage, and leave a lasting impression. Our investment services help you maximize returns and build sustainable growth.",
         icon: "TrendingUp",
-        color: "bg-blue-500",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop",
         features: [
             {
@@ -80,7 +80,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         subtitle: "L'immobilier",
         description: "Connecting you to the best properties and investment opportunities with trust, transparency, and expertise. We provide comprehensive real estate solutions across residential, commercial, and industrial sectors.",
         icon: "Building2",
-        color: "bg-indigo-500",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
         features: [
             {
@@ -130,7 +130,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         subtitle: "Tourism",
         description: "Discover exceptional travel experiences, guided tours, and unique adventures that showcase the beauty of each destination. We create unforgettable journeys tailored to your preferences.",
         icon: "Plane",
-        color: "bg-sky-500",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop",
         features: [
             {
@@ -180,7 +180,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         subtitle: "La gestion",
         description: "Professional management services designed to streamline operations, optimize resources, and achieve sustainable growth. We help businesses operate more efficiently and profitably.",
         icon: "Briefcase",
-        color: "bg-violet-500",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
         features: [
             {
@@ -230,7 +230,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         subtitle: "Import & Export",
         description: "Facilitating global trade with reliable import and export solutions that connect markets and drive business success. We handle all aspects of international commerce.",
         icon: "Globe",
-        color: "bg-cyan-500",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
         features: [
             {
@@ -280,7 +280,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         subtitle: "Web & App Development",
         description: "Innovative web and mobile applications designed to enhance your digital presence, boost user engagement, and drive business growth. We build cutting-edge digital solutions.",
         icon: "Smartphone",
-        color: "bg-teal-500",
+        color: "bg-primary",
         image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
         features: [
             {

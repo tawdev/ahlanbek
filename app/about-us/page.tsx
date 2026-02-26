@@ -6,10 +6,10 @@ import { CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white">
             {/* Header */}
             <section className="bg-slate-900 pt-40 pb-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.2)_0%,_transparent_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(212,175,55,0.2)_0%,_transparent_100%)]" />
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
                     >
-                        About <span className="text-blue-500">Ahlanbek</span>
+                        About <span className="text-primary">Ahlanbek</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export default function AboutPage() {
                             <div className="space-y-4">
                                 {["15+ Years of Excellence", "International Presence", "Customer-Centric Approach"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <CheckCircle2 size={20} className="text-blue-500" />
+                                        <CheckCircle2 size={20} className="text-primary" />
                                         <span className="font-semibold text-gray-800">{item}</span>
                                     </div>
                                 ))}
@@ -93,6 +93,6 @@ export default function AboutPage() {
                     </p>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

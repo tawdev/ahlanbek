@@ -56,7 +56,7 @@ function ContactForm() {
                             <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Full Name</label>
                             <input
                                 type="text"
-                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-gray-400 font-medium"
+                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 font-medium"
                                 placeholder="John Doe"
                                 value={formState.name}
                                 onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -67,7 +67,7 @@ function ContactForm() {
                             <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Email Address</label>
                             <input
                                 type="email"
-                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-gray-400 font-medium"
+                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 font-medium"
                                 placeholder="john@example.com"
                                 value={formState.email}
                                 onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -78,7 +78,7 @@ function ContactForm() {
                     <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Service Required</label>
                         <select
-                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all font-medium appearance-none"
+                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium appearance-none"
                             value={formState.subject}
                             onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                             required
@@ -93,7 +93,7 @@ function ContactForm() {
                         <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Your Message</label>
                         <textarea
                             rows={5}
-                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
+                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
                             placeholder="Tell us about your project..."
                             value={formState.message}
                             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -102,7 +102,7 @@ function ContactForm() {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-all hover:scale-[1.02] shadow-2xl shadow-blue-500/25 active:scale-95"
+                        className="w-full bg-primary hover:bg-amber-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-all hover:scale-[1.02] shadow-2xl shadow-primary/25 active:scale-95"
                     >
                         <Send size={22} strokeWidth={2.5} />
                         <span className="text-lg">Send via WhatsApp</span>
@@ -125,7 +125,7 @@ function ContactForm() {
 
                     <div className="space-y-6">
                         <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                            <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-primary shrink-0">
                                 <MapPin size={24} />
                             </div>
                             <div>
@@ -135,18 +135,18 @@ function ContactForm() {
                         </div>
 
                         <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                            <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-primary shrink-0">
                                 <Phone size={24} />
                             </div>
                             <div>
                                 <h4 className="font-bold text-gray-900 text-lg">Phone Number</h4>
-                                <p className="text-gray-500">+212 607 790 956</p>
+                                <p className="text-gray-500">+212 607 790 956 / +212 524 308 038</p>
                                 <p className="text-gray-400 text-sm">Mon-Fri 9am-6pm</p>
                             </div>
                         </div>
 
                         <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                            <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-primary shrink-0">
                                 <Mail size={24} />
                             </div>
                             <div>
@@ -177,17 +177,17 @@ function ContactForm() {
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white">
             {/* Header */}
             <section className="bg-slate-950 pt-32 pb-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-950 to-slate-950" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.1))] from-slate-900 via-slate-950 to-slate-950" />
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter"
                     >
-                        Get in <span className="text-blue-500">Touch</span>
+                        Get in <span className="text-primary">Touch</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -207,6 +207,6 @@ export default function ContactPage() {
                     </Suspense>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

@@ -44,7 +44,7 @@ export default function DiagonalMarquee() {
                                 className="text-6xl md:text-8xl font-black text-transparent -webkit-text-stroke-1 stroke-white/20 px-8 flex items-center gap-4 hover:text-white hover:stroke-transparent transition-all duration-500 uppercase tracking-tighter"
                             >
                                 {value}
-                                <span className="w-3 h-3 rounded-full bg-blue-600" />
+                                <span className="w-3 h-3 rounded-full bg-primary" />
                             </span>
                         ))}
                     </div>
@@ -56,7 +56,7 @@ export default function DiagonalMarquee() {
                         {[...values, ...values].map((value, i) => (
                             <span
                                 key={i}
-                                className="text-6xl md:text-8xl font-black text-white px-8 flex items-center gap-4 hover:text-blue-500 transition-all duration-500 uppercase tracking-tighter"
+                                className="text-6xl md:text-8xl font-black text-white px-8 flex items-center gap-4 hover:text-primary transition-all duration-500 uppercase tracking-tighter"
                             >
                                 {value}
                                 <span className="w-3 h-3 rounded-full bg-slate-700" />

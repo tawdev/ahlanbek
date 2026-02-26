@@ -12,7 +12,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Hero />
       <Stats />
       <Services />
@@ -24,6 +24,6 @@ export default function Home() {
       <GlobalPresence />
       <Testimonials />
       <Contact />
-    </main>
+    </div>
   );
 }

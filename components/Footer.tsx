@@ -150,7 +150,7 @@ export default function Footer() {
                         <ul className="space-y-6">
                             {[
                                 { icon: MapPin, text: "Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco" },
-                                { icon: Phone, text: "+212 607 790 956" },
+                                { icon: Phone, text: "+212 607 790 956 / +212 524 308 038" },
                                 { icon: Mail, text: "contact@ahlanbek.com" }
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4 group">

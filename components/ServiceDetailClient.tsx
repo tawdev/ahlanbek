@@ -39,10 +39,10 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
     const IconComponent = (LucideIcons as any)[service.icon] || LucideIcons.Star;
 
     return (
-        <main className="min-h-screen bg-gray-50/50">
+        <div className="min-h-screen bg-gray-50/50">
             {/* Hero Section */}
             <section className="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.2))] from-gray-900 via-gray-900 to-gray-900" />
 
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 opacity-20">
@@ -87,7 +87,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                             >
                                 <Link
                                     href={`/contact?service=${encodeURIComponent(service.title)}`}
-                                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-blue-500/30 hover:shadow-xl hover:scale-105"
+                                    className="inline-flex items-center gap-2 bg-primary hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:scale-105"
                                 >
                                     Get Started
                                     <ArrowRight size={20} />
@@ -263,7 +263,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
 
             {/* CTA Section */}
             <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/50 via-gray-900 to-gray-900" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.1))] from-gray-900 via-gray-900 to-gray-900" />
                 <div className="relative z-10 max-w-4xl 3xl:max-w-[1200px] 4xl:max-w-[1400px] mx-auto px-4 text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -291,7 +291,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                     >
                         <Link
                             href={`/contact?service=${encodeURIComponent(service.title)}`}
-                            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-blue-500/30 hover:scale-105"
+                            className="inline-flex items-center gap-2 bg-primary hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-primary/30 hover:scale-105"
                         >
                             Contact Us Today
                             <ArrowRight size={20} />
@@ -305,6 +305,6 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                     </motion.div>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

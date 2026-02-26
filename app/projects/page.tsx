@@ -33,15 +33,15 @@ export default function ProjectsPage() {
         : projects.filter(p => p.category === selectedCategory);
 
     return (
-        <main className="min-h-screen bg-gray-50/50">
+        <div className="min-h-screen bg-gray-50/50">
             {/* Header */}
             <section className="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-gray-900 to-gray-900" />
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 text-blue-400 text-sm font-semibold mb-6 backdrop-blur-sm border border-blue-500/30"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 backdrop-blur-sm border border-primary/30"
                     >
                         Our Portfolio
                     </motion.div>
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-bold text-white mb-6"
                     >
-                        Latest <span className="text-blue-500">Projects</span>
+                        Latest <span className="text-primary">Projects</span>
                     </motion.h1>
 
                     <motion.p
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
                                 transition={{ delay: index * 0.05 }}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-6 py-2.5 rounded-full font-semibold transition-all ${selectedCategory === category
-                                    ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
+                                    ? "bg-primary text-white shadow-lg shadow-primary/30"
                                     : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
                                     }`}
                             >
@@ -121,7 +121,7 @@ export default function ProjectsPage() {
 
                                     {/* Category Badge */}
                                     <div className="absolute top-4 right-4">
-                                        <span className="px-3 py-1 bg-blue-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full">
+                                        <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-white text-xs font-bold rounded-full">
                                             {project.category}
                                         </span>
                                     </div>
@@ -138,18 +138,18 @@ export default function ProjectsPage() {
 
                                 {/* Content */}
                                 <div className="p-6">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                                         {project.title}
                                     </h3>
                                     <div className="flex items-center gap-2 text-gray-500">
-                                        <MapPin size={18} className="text-blue-500" />
+                                        <MapPin size={18} className="text-primary" />
                                         <span className="text-sm font-medium">{project.location}</span>
                                     </div>
                                 </div>
 
                                 {/* Bottom Accent */}
                                 <motion.div
-                                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600"
+                                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-amber-600"
                                     initial={{ scaleX: 0 }}
                                     whileHover={{ scaleX: 1 }}
                                     transition={{ duration: 0.3 }}
@@ -173,7 +173,7 @@ export default function ProjectsPage() {
 
             {/* CTA Section */}
             <section className="py-24 bg-gray-900 text-white text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/50 via-gray-900 to-gray-900" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-gray-900 to-gray-900" />
                 <div className="relative z-10 max-w-4xl 3xl:max-w-[1200px] 4xl:max-w-[1400px] mx-auto px-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -200,12 +200,12 @@ export default function ProjectsPage() {
                         transition={{ delay: 0.2 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-blue-500/30"
+                        className="inline-block bg-primary hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-primary/30"
                     >
                         Start Your Project
                     </motion.a>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

@@ -41,8 +41,8 @@ export default function Preloader() {
             {isLoading && (
                 <div className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden">
                     {/* Background Layers */}
-                    <div className="preloader-bg absolute inset-0 bg-slate-900 z-10" />
-                    <div className="preloader-bg absolute inset-0 bg-amber-600 z-0" />
+                    <div className="preloader-bg absolute inset-0 bg-white z-10" />
+                    <div className="preloader-bg absolute inset-0 bg-primary z-0" />
 
                     <div className="relative z-20 flex flex-col items-center">
                         <motion.div
@@ -56,27 +56,27 @@ export default function Preloader() {
                             }}
                             onAnimationComplete={finishLoading}
                         >
-                            <Logo variant="light" className="scale-150" showText={false} />
+                            <Logo variant="silver" className="scale-150" showText={false} />
                             <motion.div
                                 className="mt-8 overflow-hidden h-8"
                                 initial={{ width: 0 }}
                                 animate={{ width: "auto" }}
                                 transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
                             >
-                                <span className="text-slate-300 text-3xl font-black tracking-[0.5em] uppercase whitespace-nowrap">
+                                <span className="text-primary text-3xl font-black tracking-[0.5em] uppercase whitespace-nowrap">
                                     AHLANBEK
                                 </span>
                             </motion.div>
                         </motion.div>
 
                         <motion.div
-                            className="absolute bottom-10 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-white/20"
+                            className="absolute bottom-10 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-primary/20"
                             initial={{ width: 0 }}
                             animate={{ width: 192 }}
                             transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
                         >
                             <motion.div
-                                className="h-full bg-white"
+                                className="h-full bg-primary"
                                 initial={{ width: 0 }}
                                 animate={{ width: "100%" }}
                                 transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}

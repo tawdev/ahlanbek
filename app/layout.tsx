@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} selection:bg-blue-600/30 selection:text-blue-900`}>
+      <body className={`${inter.className} selection:bg-primary/30 selection:text-primary`}>
         {/* Cinematic Grain Overlay */}
         <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">

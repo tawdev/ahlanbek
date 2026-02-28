@@ -33,9 +33,9 @@ export default function ProjectsPage() {
         : projects.filter(p => p.category === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-gray-50/50">
+        <div className="min-h-screen bg-white">
             {/* Header */}
-            <section className="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
+            <section className="bg-gray-900 pt-48 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-gray-900 to-gray-900" />
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.div
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
             </section>
 
             {/* Category Filter */}
-            <section className="py-8 sticky top-20 z-40 bg-gray-50/80 backdrop-blur-md border-b border-gray-200">
+            <section className="py-8 sticky top-20 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200">
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-center gap-3">
                         {categories.map((category, index) => (

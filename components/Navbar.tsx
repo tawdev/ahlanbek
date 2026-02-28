@@ -29,10 +29,9 @@ export default function Navbar() {
     const isTransparentPage = true;
     const effectiveScrolled = scrolled;
 
-    const textColor = effectiveScrolled ? "text-slate-900" : isDarkHeader ? "text-white" : "text-slate-900";
-    const logoColor = effectiveScrolled ? "text-primary" : isDarkHeader ? "text-white" : "text-primary";
-    const hoverColor = effectiveScrolled ? "hover:text-primary" : isDarkHeader ? "hover:text-amber-200" : "hover:text-primary";
-    const buttonBg = effectiveScrolled ? "bg-primary text-white hover:bg-primary/90" : isDarkHeader ? "bg-white text-primary hover:bg-gray-100" : "bg-primary text-white hover:bg-primary/90";
+    const textColor = "text-slate-900";
+    const hoverColor = "hover:text-primary";
+    const buttonBg = "bg-primary text-white hover:bg-primary/90";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -69,19 +68,16 @@ export default function Navbar() {
     return (
         <nav
             ref={navRef}
-            className={`fixed w-full z-50 transition-all duration-300 ${effectiveScrolled
-                ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-2"
-                : "bg-transparent py-4"
-                }`}
+            className="fixed w-full z-50 transition-all duration-300 bg-white shadow-sm border-b border-gray-100 py-6"
         >
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
+                <div className="flex items-center justify-between h-20">
                     <div ref={logoRef} className="flex-shrink-0 opacity-0">
                         <Link href="/" className="flex items-center gap-2">
                             <Logo
-                                variant={effectiveScrolled ? "silver" : (isDarkHeader ? "light" : "silver")}
+                                variant="silver"
                                 showText={false}
-                                className="scale-75 sm:scale-100 origin-left"
+                                className="scale-100 origin-left"
                             />
 
                         </Link>

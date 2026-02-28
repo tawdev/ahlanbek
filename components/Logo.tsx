@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 
 interface LogoProps {
@@ -13,14 +12,15 @@ export default function Logo({ className = "", variant = "silver", showText = tr
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <div ref={containerRef} className={`flex flex-col items-center group cursor-pointer ${className}`}>
-            <div className="relative w-[180px] h-[80px] md:w-[220px] md:h-[100px] transition-all duration-500 group-hover:scale-105">
-                <Image
-                    src="/logo.png"
-                    alt="Ahlanbek Logo"
-                    fill
-                    className="object-contain"
-                    priority
+        <div ref={containerRef} className={`flex flex-col items-center group ${className}`}>
+            <div className="relative w-[380px] h-[100px] md:w-[450px] md:h-[130px] transition-all duration-500">
+                <video
+                    src="/logoAhlanbek.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain"
                 />
             </div>
         </div>

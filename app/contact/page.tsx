@@ -47,7 +47,7 @@ function ContactForm() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-gray-50/50 p-8 md:p-12 rounded-[40px] border border-gray-100 backdrop-blur-sm"
+                className="bg-white p-8 md:p-12 rounded-[40px] border border-gray-100 backdrop-blur-sm"
             >
                 <h2 className="text-3xl font-black text-gray-900 mb-8 tracking-tight">Send us a message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -179,7 +179,7 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-white">
             {/* Header */}
-            <section className="bg-slate-950 pt-32 pb-20 relative overflow-hidden">
+            <section className="bg-slate-950 pt-48 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.1))] from-slate-900 via-slate-950 to-slate-950" />
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1

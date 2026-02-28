@@ -7,7 +7,7 @@ export default function ServicesPage() {
     return (
         <>
             {/* Header */}
-            <section className="bg-slate-900 pt-40 pb-24 relative overflow-hidden">
+            <section className="bg-slate-900 pt-48 pb-24 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.2)_0%,_transparent_100%)]" />
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
@@ -31,7 +31,7 @@ export default function ServicesPage() {
             </section>
 
             {/* Services Grid */}
-            <section className="py-24 bg-gray-50/50 relative z-20">
+            <section className="py-24 bg-white relative z-20">
                 <Services />
             </section>
 

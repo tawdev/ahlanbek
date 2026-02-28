@@ -189,7 +189,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative bg-[#fcfcfc] pt-32 pb-20 lg:pt-20 lg:pb-20 overflow-x-hidden min-h-screen flex items-center w-full max-w-full">
+        <section ref={containerRef} className="relative bg-white pt-48 pb-20 lg:pt-40 lg:pb-20 overflow-x-hidden min-h-screen flex items-center w-full max-w-full">
             {/* Background Parallax Layers */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 w-full">
                 <div className="parallax-layer-1 absolute inset-0 bg-white w-full" />

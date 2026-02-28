@@ -113,7 +113,7 @@ export default function Testimonials() {
 
                 <div className="relative max-w-4xl mx-auto">
                     {/* Testimonial Card */}
-                    <div className="bg-gray-50 p-12 md:p-16 rounded-[3rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative overflow-hidden group">
+                    <div className="bg-white p-12 md:p-16 rounded-[3rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative overflow-hidden group">
                         <Quote className="absolute top-10 right-10 w-20 h-20 text-amber-100 -rotate-12 transition-transform group-hover:rotate-0 duration-700" size={80} />
 
                         <div ref={textRef} className="relative z-10">

@@ -54,7 +54,9 @@ export default function Preloader() {
                                 ease: [0.22, 1, 0.36, 1],
                                 delay: 0.5
                             }}
-                            onAnimationComplete={finishLoading}
+                            onAnimationComplete={() => {
+                                setTimeout(finishLoading, 2000);
+                            }}
                         >
                             <Logo variant="silver" className="scale-150" showText={false} />
                             <motion.div

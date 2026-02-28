@@ -90,11 +90,7 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="lg:col-span-4">
                         <Link href="/" className="flex items-center gap-4 mb-8 group">
-                            <Logo variant="silver" className="scale-110 origin-left" />
-                            <div className="flex flex-col">
-                                <span className="text-2xl font-black tracking-tighter text-slate-500 group-hover:text-primary transition-colors">AHLANBEK</span>
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-primary/60 uppercase -mt-1">Global Excellence</span>
-                            </div>
+                            <Logo type="image" className="scale-110 origin-left" />
                         </Link>
                         <p className="text-gray-500 mb-8 leading-relaxed text-lg">
                             Making your dream become true since 2009. We connect markets, people, and opportunities with quality services and unwavering commitment.
@@ -180,6 +176,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }

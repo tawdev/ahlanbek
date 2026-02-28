@@ -75,11 +75,11 @@ export default function Navbar() {
                     <div ref={logoRef} className="flex-shrink-0 opacity-0">
                         <Link href="/" className="flex items-center gap-2">
                             <Logo
+                                videoSrc="/navLogoFinal.mp4"
                                 variant="silver"
                                 showText={false}
                                 className="scale-100 origin-left"
                             />
-
                         </Link>
                     </div>
 

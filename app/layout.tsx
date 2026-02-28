@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ahlanbek - Make Your Dream Become True",
   description: "Since 2009 in Germany, we have been working on the supply of necessary things in Morocco.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 import Navbar from "@/components/Navbar";

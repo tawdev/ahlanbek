@@ -157,7 +157,13 @@ export default function Footer() {
                                     <div className="p-2 bg-amber-50 text-primary rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                                         <item.icon size={20} />
                                     </div>
-                                    <span className="text-gray-500 transition-colors group-hover:text-gray-900">{item.text}</span>
+                                    <div className="flex flex-col gap-1">
+                                        {item.text.split(" / ").map((line, idx) => (
+                                            <span key={idx} className="text-gray-500 transition-colors group-hover:text-gray-900">
+                                                {line}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </li>
                             ))}
                         </ul>

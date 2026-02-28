@@ -58,7 +58,7 @@ export default function Preloader() {
                                 setTimeout(finishLoading, 2000);
                             }}
                         >
-                            <Logo variant="silver" className="scale-150" showText={false} />
+                            <Logo videoSrc="/navLogoFinal.mp4" variant="silver" className="scale-150" showText={false} />
                             <motion.div
                                 className="mt-8 overflow-hidden h-8"
                                 initial={{ width: 0 }}

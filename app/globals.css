@@ -71,13 +71,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-montserrat);
+  font-family: var(--font-outfit);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .font-display {
-  font-family: var(--font-montserrat);
+  font-family: var(--font-outfit);
 }
 
 .font-serif {
@@ -90,4 +90,9 @@ h6 {
 
 .font-body {
   font-family: var(--font-lora);
+}
+
+.will-change-transform {
+  will-change: transform;
+  transform: translateZ(0);
 }

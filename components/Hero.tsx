@@ -94,8 +94,13 @@ export default function Hero() {
                 ease: "back.out(1.7)"
             }, "-=1.5");
 
-        // Advanced Mouse Parallax
+        // Optimized Throttled Mouse Parallax
+        let lastMove = 0;
         const handleMouseMove = (e: MouseEvent) => {
+            const now = Date.now();
+            if (now - lastMove < 32) return; // Throttle to ~30fps for input
+            lastMove = now;
+
             const { clientX, clientY } = e;
             const x = (clientX / window.innerWidth - 0.5) * 60;
             const y = (clientY / window.innerHeight - 0.5) * 60;
@@ -104,7 +109,7 @@ export default function Hero() {
             gsap.to(".parallax-layer-2", { x: x * 1, y: y * 1, duration: 2.5, ease: "power2.out" });
             gsap.to(".parallax-layer-3", { x: x * 1.8, y: y * 1.8, duration: 3, ease: "power2.out" });
         };
-        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
         // Scroll Parallax Enhancement
         gsap.to(image1Ref.current, {
@@ -193,10 +198,10 @@ export default function Hero() {
             {/* Background Parallax Layers */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 w-full">
                 <div className="parallax-layer-1 absolute inset-0 bg-white w-full" />
-                {/* Subtle Metallic Gradients for Light Mode */}
-                <div ref={bgElement1Ref} className="parallax-layer-2 absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-amber-100/30 rounded-full blur-[140px] opacity-40 max-w-none" />
-                <div ref={bgElement2Ref} className="parallax-layer-3 absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] bg-slate-100/40 rounded-full blur-[120px] opacity-50 max-w-none" />
-                <div className="absolute top-[20%] left-[30%] w-[400px] h-[400px] bg-amber-50/20 rounded-full blur-[100px] animate-pulse max-w-none" />
+                {/* Subtle Metallic Gradients - Optimized for Safari */}
+                <div ref={bgElement1Ref} className="parallax-layer-2 absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-amber-100/30 rounded-full blur-[80px] opacity-40 max-w-none will-change-transform" />
+                <div ref={bgElement2Ref} className="parallax-layer-3 absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] bg-slate-100/40 rounded-full blur-[60px] opacity-50 max-w-none will-change-transform" />
+                <div className="absolute top-[20%] left-[30%] w-[400px] h-[400px] bg-amber-50/20 rounded-full blur-[40px] animate-pulse max-w-none" />
 
                 {/* Abstract Grid Overlay (Darker dots for light background) */}
                 <div className="absolute inset-0 opacity-[0.05] w-full"
@@ -205,7 +210,7 @@ export default function Hero() {
                         backgroundSize: '40px 40px'
                     }}
                 />
-                <div className="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] invert w-full" />
+                <div className="absolute inset-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] invert w-full will-change-transform" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white w-full" />
             </div>
 
@@ -217,15 +222,15 @@ export default function Hero() {
 
                         <div className="relative">
                             <SplitTextReveal
-                                type="chars"
-                                className="text-5xl md:text-7xl lg:text-8xl font-medium text-slate-900 leading-[1.1] tracking-tight font-serif italic"
+                                type="words"
+                                className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-[1.1] tracking-tighter font-display"
                             >
                                 Make Your Dream
                             </SplitTextReveal>
                             <SplitTextReveal
                                 type="words"
                                 delay={0.5}
-                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter mb-8 leading-[0.9] text-primary font-serif italic"
+                                className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-8 leading-[0.9] text-primary font-display"
                             >
                                 Become True
                             </SplitTextReveal>

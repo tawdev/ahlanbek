@@ -153,14 +153,14 @@ export default function RootLayout({
         </noscript>
         <JsonLd data={organizationSchema} />
         <JsonLd data={localBusinessSchema} />
-        {/* Cinematic Grain Overlay */}
-        <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.02] mix-blend-overlay">
+        {/* Cinematic Grain Overlay - Simplified for Performance */}
+        <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.015] mix-blend-overlay overflow-hidden">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             <filter id="noiseFilter">
               <feTurbulence
                 type="fractalNoise"
                 baseFrequency="0.6"
-                numOctaves="2"
+                numOctaves="1"
                 stitchTiles="stitch"
               />
               <feColorMatrix type="saturate" values="0" />

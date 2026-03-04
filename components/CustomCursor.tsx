@@ -9,6 +9,8 @@ export default function CustomCursor() {
     const [isPointer, setIsPointer] = useState(false);
 
     useEffect(() => {
+        if (typeof window === "undefined") return;
+
         const cursor = cursorRef.current;
         const follower = followerRef.current;
 
@@ -34,11 +36,13 @@ export default function CustomCursor() {
 
         const onMouseEnter = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
+            if (!target) return;
+
             if (
                 target.tagName === 'A' ||
                 target.tagName === 'BUTTON' ||
-                target.closest('button') ||
-                target.closest('a') ||
+                target.closest?.('button') ||
+                target.closest?.('a') ||
                 target.classList.contains('cursor-pointer')
             ) {
                 setIsPointer(true);

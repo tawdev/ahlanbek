@@ -25,33 +25,47 @@ export default function SplitTextReveal({
     useGSAP(() => {
         if (!textRef.current) return;
 
-        const text = new SplitType(textRef.current, { types: type });
-        const targets = type === "chars" ? text.chars : type === "words" ? text.words : text.lines;
+        let text: SplitType | null = null;
 
-        gsap.fromTo(targets,
-            {
-                y: "100%",
-                opacity: 0,
-                rotateX: -45,
-                transformOrigin: "top center"
-            },
-            {
-                y: "0%",
-                opacity: 1,
-                rotateX: 0,
-                duration: 1,
-                stagger: 0.1,
-                delay: delay,
-                ease: "expo.out",
-                scrollTrigger: {
-                    trigger: textRef.current,
-                    start: "top 90%",
-                    once: once
+        const initSplit = () => {
+            if (!textRef.current) return;
+            text = new SplitType(textRef.current, { types: type });
+            const targets = type === "chars" ? text.chars : type === "words" ? text.words : text.lines;
+
+            gsap.fromTo(targets,
+                {
+                    y: "100%",
+                    opacity: 0,
+                    rotateX: -45,
+                    transformOrigin: "top center"
+                },
+                {
+                    y: "0%",
+                    opacity: 1,
+                    rotateX: 0,
+                    duration: 1,
+                    stagger: 0.1,
+                    delay: delay,
+                    ease: "expo.out",
+                    scrollTrigger: {
+                        trigger: textRef.current,
+                        start: "top 90%",
+                        once: once
+                    }
                 }
-            }
-        );
+            );
+        };
 
-        return () => text.revert();
+        // In Safari, measuring text before fonts are ready can cause issues
+        if (document.fonts) {
+            document.fonts.ready.then(initSplit);
+        } else {
+            setTimeout(initSplit, 100);
+        }
+
+        return () => {
+            if (text) text.revert();
+        };
     }, [children, type, delay, once]);
 
     return (

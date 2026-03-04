@@ -14,6 +14,8 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     const pathname = usePathname();
 
     useEffect(() => {
+        if (typeof window === "undefined") return;
+
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -29,7 +31,8 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
             lenis.raf(time * 1000);
         };
 
-        lenis.on('scroll', ScrollTrigger.update);
+        const scrollHandler = () => ScrollTrigger.update();
+        lenis.on('scroll', scrollHandler);
 
         gsap.ticker.add(updateHandler);
         gsap.ticker.lagSmoothing(0);

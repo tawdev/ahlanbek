@@ -58,17 +58,16 @@ export default function Preloader() {
                                 setTimeout(finishLoading, 2000);
                             }}
                         >
-                            <Logo videoSrc="/navLogoFinal.mp4" variant="silver" className="scale-150" showText={false} />
-                            <motion.div
-                                className="mt-8 overflow-hidden h-8"
-                                initial={{ width: 0 }}
-                                animate={{ width: "auto" }}
-                                transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
-                            >
-                                <span className="text-primary text-3xl font-black tracking-[0.5em] uppercase whitespace-nowrap">
-                                    AHLANBEK
-                                </span>
-                            </motion.div>
+                            <Logo
+                                imageSrc="/logoFinal.png"
+                                type="image"
+                                variant="silver"
+                                width="w-[250px] md:w-[350px]"
+                                height="h-[70px] md:h-[100px]"
+                                className="scale-100"
+                                showText={false}
+                            />
+
                         </motion.div>
 
                         <motion.div

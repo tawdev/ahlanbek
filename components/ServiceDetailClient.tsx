@@ -65,7 +65,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
-                                className="text-4xl md:text-6xl font-bold text-white mb-4"
+                                className="text-4xl md:text-6xl font-bold text-white mb-4 font-display"
                             >
                                 {service.title}
                             </motion.h1>
@@ -74,7 +74,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-xl text-gray-300 mb-8 leading-relaxed"
+                                className="text-xl text-gray-300 mb-8 leading-relaxed font-serif"
                             >
                                 {service.description}
                             </motion.p>
@@ -87,14 +87,14 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                             >
                                 <Link
                                     href={`/contact?service=${encodeURIComponent(service.title)}`}
-                                    className="inline-flex items-center gap-2 bg-primary hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:scale-105"
+                                    className="inline-flex items-center gap-2 bg-primary hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:scale-105 font-ui"
                                 >
                                     Get Started
                                     <ArrowRight size={20} />
                                 </Link>
                                 <Link
                                     href={`/contact?service=${encodeURIComponent(service.title)}`}
-                                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-all backdrop-blur-sm border border-white/20"
+                                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-full transition-all backdrop-blur-sm border border-white/20 font-ui"
                                 >
                                     Contact Us
                                 </Link>
@@ -116,8 +116,8 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                                     transition={{ delay: 0.5 + index * 0.1 }}
                                     className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
                                 >
-                                    <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                                    <div className="text-gray-300 text-sm">{stat.label}</div>
+                                    <div className="text-4xl font-bold text-white mb-2 font-display">{stat.value}</div>
+                                    <div className="text-gray-300 text-sm font-ui">{stat.label}</div>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -134,10 +134,10 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-display">
                             Key Features
                         </h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        <p className="text-gray-600 text-lg max-w-2xl mx-auto font-serif">
                             Discover what makes our {service.title.toLowerCase()} services exceptional
                         </p>
                     </motion.div>
@@ -158,8 +158,8 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                                     <div className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center mb-4`}>
                                         <FeatureIcon className="w-6 h-6 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                                    <p className="text-gray-600">{feature.description}</p>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2 font-display">{feature.title}</h3>
+                                    <p className="text-gray-600 font-serif">{feature.description}</p>
                                 </motion.div>
                             );
                         })}
@@ -176,10 +176,10 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-display">
                             Our Process
                         </h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        <p className="text-gray-600 text-lg max-w-2xl mx-auto font-serif">
                             A streamlined approach to delivering exceptional results
                         </p>
                     </motion.div>
@@ -195,11 +195,11 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                                 className="relative"
                             >
                                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                                    <div className={`w-12 h-12 ${service.color} rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl`}>
+                                    <div className={`w-12 h-12 ${service.color} rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl font-display`}>
                                         {step.step}
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                                    <p className="text-gray-600">{step.description}</p>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2 font-display">{step.title}</h3>
+                                    <p className="text-gray-600 font-serif">{step.description}</p>
                                 </div>
                                 {index < service.process.length - 1 && (
                                     <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-300" />
@@ -219,10 +219,10 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-display">
                                 Why Choose Us?
                             </h2>
-                            <p className="text-gray-600 text-lg mb-8">
+                            <p className="text-gray-600 text-lg mb-8 font-serif">
                                 We deliver exceptional value through our commitment to excellence and customer satisfaction.
                             </p>
                             <div className="space-y-4">
@@ -238,7 +238,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                                         <div className={`w-6 h-6 ${service.color} rounded-full flex items-center justify-center flex-shrink-0 mt-0.5`}>
                                             <Check className="w-4 h-4 text-white" />
                                         </div>
-                                        <p className="text-gray-700">{benefit}</p>
+                                        <p className="text-gray-700 font-serif">{benefit}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -269,7 +269,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-bold mb-6"
+                        className="text-3xl md:text-4xl font-bold mb-6 font-display"
                     >
                         Ready to Get Started?
                     </motion.h2>
@@ -278,7 +278,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-gray-400 text-lg mb-8"
+                        className="text-gray-400 text-lg mb-8 font-serif"
                     >
                         Let's discuss how our {service.title.toLowerCase()} services can help you achieve your goals
                     </motion.p>
@@ -291,14 +291,14 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
                     >
                         <Link
                             href={`/contact?service=${encodeURIComponent(service.title)}`}
-                            className="inline-flex items-center gap-2 bg-primary hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-primary/30 hover:scale-105"
+                            className="inline-flex items-center gap-2 bg-primary hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-primary/30 hover:scale-105 font-ui"
                         >
                             Contact Us Today
                             <ArrowRight size={20} />
                         </Link>
                         <Link
                             href="/services"
-                            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-full transition-all backdrop-blur-sm border border-white/20"
+                            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-full transition-all backdrop-blur-sm border border-white/20 font-ui"
                         >
                             View All Services
                         </Link>

@@ -75,7 +75,7 @@ export default function Process() {
                     <span className="inline-block text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-4">
                         Workflow
                     </span>
-                    <SplitTextReveal className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter leading-[0.9]">
+                    <SplitTextReveal className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter leading-[0.9] font-display">
                         Our Strategic Process.
                     </SplitTextReveal>
                 </div>
@@ -93,17 +93,17 @@ export default function Process() {
                                     {step.id}
                                 </span>
                                 <div className="relative z-10">
-                                    <h3 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
+                                    <h3 className="text-4xl md:text-5xl font-black tracking-tight mb-6 font-display">
                                         {step.title}
                                     </h3>
-                                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
+                                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-serif">
                                         {step.description}
                                     </p>
                                     <div className="mt-12 flex items-center gap-4 group cursor-pointer w-fit">
-                                        <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-primary">
+                                        <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-primary font-ui">
                                             <span className="text-sm font-bold">→</span>
                                         </div>
-                                        <span className="text-sm font-bold uppercase tracking-widest">Explore Stage</span>
+                                        <span className="text-sm font-bold uppercase tracking-widest font-ui">Explore Stage</span>
                                     </div>
                                 </div>
                             </div>

@@ -85,12 +85,12 @@ export default function About() {
                             <span className="inline-block text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-4 px-3 py-1 bg-amber-50 rounded-full border border-amber-100">
                                 Our Story
                             </span>
-                            <SplitTextReveal className="text-5xl sm:text-7xl font-black text-gray-900 leading-[0.95] tracking-tighter mb-8">
+                            <SplitTextReveal className="text-5xl sm:text-7xl font-black text-gray-900 leading-[0.95] tracking-tighter mb-8 font-display">
                                 Crafting Excellence Since 2009.
                             </SplitTextReveal>
                         </div>
 
-                        <p className="about-content-item text-xl text-gray-500 leading-relaxed font-light max-w-xl">
+                        <p className="about-content-item text-xl text-gray-500 leading-relaxed font-serif max-w-xl">
                             Founded in 2009, Ahlanbek started with a simple vision: to bridge the gap between markets and people.
                             Today, we are an international powerhouse delivering uncompromising quality.
                         </p>
@@ -106,8 +106,8 @@ export default function About() {
                                         <CheckCircle2 size={24} className="text-primary group-hover:text-white transition-colors duration-300" />
                                     </div>
                                     <div>
-                                        <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">{item.title}</h4>
-                                        <p className="text-gray-400 font-medium">{item.desc}</p>
+                                        <h4 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors font-display">{item.title}</h4>
+                                        <p className="text-gray-400 font-serif">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -116,7 +116,7 @@ export default function About() {
                         <div className="about-content-item pt-8">
                             <Link
                                 href="/about-us"
-                                className="group relative inline-flex items-center gap-4 px-10 py-5 bg-gray-900 text-white rounded-2xl font-black hover:bg-primary transition-all duration-500 shadow-2xl shadow-gray-900/10 active:scale-95"
+                                className="group relative inline-flex items-center gap-4 px-10 py-5 bg-gray-900 text-white rounded-2xl font-black hover:bg-primary transition-all duration-500 shadow-2xl shadow-gray-900/10 active:scale-95 font-ui"
                             >
                                 Discover Our Journey
                                 <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-500" />

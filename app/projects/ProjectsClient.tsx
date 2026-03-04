@@ -41,7 +41,7 @@ export default function ProjectsClient() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 backdrop-blur-sm border border-primary/30"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-6 backdrop-blur-sm border border-primary/30 font-ui"
                     >
                         Our Portfolio
                     </motion.div>
@@ -49,7 +49,7 @@ export default function ProjectsClient() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold text-white mb-6"
+                        className="text-4xl md:text-6xl font-bold text-white mb-6 font-display"
                     >
                         Latest <span className="text-primary">Projects</span>
                     </motion.h1>
@@ -58,7 +58,7 @@ export default function ProjectsClient() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-400 max-w-2xl mx-auto"
+                        className="text-xl text-gray-400 max-w-2xl mx-auto font-serif"
                     >
                         Explore our portfolio of successful projects delivered across the globe
                     </motion.p>
@@ -76,7 +76,7 @@ export default function ProjectsClient() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.05 }}
                                 onClick={() => setSelectedCategory(category)}
-                                className={`px-6 py-2.5 rounded-full font-semibold transition-all ${selectedCategory === category
+                                className={`px-6 py-2.5 rounded-full font-semibold transition-all font-ui ${selectedCategory === category
                                     ? "bg-primary text-white shadow-lg shadow-primary/30"
                                     : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
                                     }`}
@@ -121,7 +121,7 @@ export default function ProjectsClient() {
 
                                     {/* Category Badge */}
                                     <div className="absolute top-4 right-4">
-                                        <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-white text-xs font-bold rounded-full">
+                                        <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-white text-xs font-bold rounded-full font-ui">
                                             {project.category}
                                         </span>
                                     </div>
@@ -138,12 +138,12 @@ export default function ProjectsClient() {
 
                                 {/* Content */}
                                 <div className="p-6">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors font-display">
                                         {project.title}
                                     </h3>
-                                    <div className="flex items-center gap-2 text-gray-500">
+                                    <div className="flex items-center gap-2 text-gray-500 font-serif">
                                         <MapPin size={18} className="text-primary" />
-                                        <span className="text-sm font-medium">{project.location}</span>
+                                        <span className="text-sm font-serif">{project.location}</span>
                                     </div>
                                 </div>
 
@@ -179,7 +179,7 @@ export default function ProjectsClient() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-bold mb-6"
+                        className="text-3xl md:text-4xl font-bold mb-6 font-display"
                     >
                         Have a project in mind?
                     </motion.h2>
@@ -188,7 +188,7 @@ export default function ProjectsClient() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-gray-400 text-lg mb-8"
+                        className="text-gray-400 text-lg mb-8 font-serif"
                     >
                         Let's work together to bring your vision to life
                     </motion.p>
@@ -200,7 +200,7 @@ export default function ProjectsClient() {
                         transition={{ delay: 0.2 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block bg-primary hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-primary/30"
+                        className="inline-block bg-primary hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg shadow-primary/30 font-ui"
                     >
                         Start Your Project
                     </motion.a>

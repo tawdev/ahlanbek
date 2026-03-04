@@ -49,14 +49,14 @@ function ContactForm() {
                 viewport={{ once: true }}
                 className="bg-white p-8 md:p-12 rounded-[40px] border border-gray-100 backdrop-blur-sm"
             >
-                <h2 className="text-3xl font-black text-gray-900 mb-8 tracking-tight">Send us a message</h2>
+                <h2 className="text-3xl font-black text-gray-900 mb-8 tracking-tight font-display">Send us a message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Full Name</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Full Name</label>
                             <input
                                 type="text"
-                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 font-medium"
+                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 font-serif"
                                 placeholder="John Doe"
                                 value={formState.name}
                                 onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -64,10 +64,10 @@ function ContactForm() {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Email Address</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Email Address</label>
                             <input
                                 type="email"
-                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 font-medium"
+                                className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 font-serif"
                                 placeholder="john@example.com"
                                 value={formState.email}
                                 onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -76,9 +76,9 @@ function ContactForm() {
                         </div>
                     </div>
                     <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Service Required</label>
+                        <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Service Required</label>
                         <select
-                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all font-medium appearance-none"
+                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all font-serif appearance-none"
                             value={formState.subject}
                             onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                             required
@@ -90,10 +90,10 @@ function ContactForm() {
                         </select>
                     </div>
                     <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Your Message</label>
+                        <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Your Message</label>
                         <textarea
                             rows={5}
-                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
+                            className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all resize-none placeholder:text-gray-400 font-serif"
                             placeholder="Tell us about your project..."
                             value={formState.message}
                             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -102,7 +102,7 @@ function ContactForm() {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-primary hover:bg-amber-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-all hover:scale-[1.02] shadow-2xl shadow-primary/25 active:scale-95"
+                        className="w-full bg-primary hover:bg-amber-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-all hover:scale-[1.02] shadow-2xl shadow-primary/25 active:scale-95 font-ui"
                     >
                         <Send size={22} strokeWidth={2.5} />
                         <span className="text-lg">Send via WhatsApp</span>
@@ -118,8 +118,8 @@ function ContactForm() {
                 className="space-y-10"
             >
                 <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
-                    <p className="text-gray-500 text-lg leading-relaxed mb-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6 font-display">Contact Information</h2>
+                    <p className="text-gray-500 text-lg leading-relaxed mb-8 font-serif">
                         We are here to help and answer any question you might have. We look forward to hearing from you.
                     </p>
 
@@ -129,8 +129,8 @@ function ContactForm() {
                                 <MapPin size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 text-lg">Our Headquarter</h4>
-                                <p className="text-gray-500">Lot iguider N48 AV Allal El Fassi,<br />Marrakesh, Morocco</p>
+                                <h4 className="font-bold text-gray-900 text-lg font-display">Our Headquarter</h4>
+                                <p className="text-gray-500 font-serif">Lot iguider N48 AV Allal El Fassi,<br />Marrakesh, Morocco</p>
                             </div>
                         </div>
 
@@ -139,9 +139,9 @@ function ContactForm() {
                                 <Phone size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 text-lg">Phone Number</h4>
-                                <p className="text-gray-500">+212 607 790 956 / +212 524 308 038</p>
-                                <p className="text-gray-400 text-sm">Mon-Fri 9am-6pm</p>
+                                <h4 className="font-bold text-gray-900 text-lg font-display">Phone Number</h4>
+                                <p className="text-gray-500 font-serif">+212 607 790 956 / +212 524 308 038</p>
+                                <p className="text-gray-400 text-sm font-ui">Mon-Fri 9am-6pm</p>
                             </div>
                         </div>
 
@@ -150,9 +150,9 @@ function ContactForm() {
                                 <Mail size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 text-lg">Email Address</h4>
-                                <p className="text-gray-500">contact@ahlanbek.com</p>
-                                <p className="text-gray-400 text-sm">We reply within 24 hours</p>
+                                <h4 className="font-bold text-gray-900 text-lg font-display">Email Address</h4>
+                                <p className="text-gray-500 font-serif">contact@ahlanbek.com</p>
+                                <p className="text-gray-400 text-sm font-ui">We reply within 24 hours</p>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@ export default function ContactClient() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter"
+                        className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter font-display"
                     >
                         Get in <span className="text-primary">Touch</span>
                     </motion.h1>
@@ -193,7 +193,7 @@ export default function ContactClient() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-slate-400 max-w-2xl mx-auto font-light"
+                        className="text-xl text-slate-400 max-w-2xl mx-auto font-serif"
                     >
                         Have a project in mind or want to learn more about our services? We'd love to hear from you.
                     </motion.p>
@@ -202,7 +202,7 @@ export default function ContactClient() {
 
             <section className="py-24">
                 <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <Suspense fallback={<div className="h-96 flex items-center justify-center font-bold text-2xl text-slate-400 animate-pulse">Loading Contact Form...</div>}>
+                    <Suspense fallback={<div className="h-96 flex items-center justify-center font-bold text-2xl text-slate-400 animate-pulse font-display">Loading Contact Form...</div>}>
                         <ContactForm />
                     </Suspense>
                 </div>

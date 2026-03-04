@@ -118,14 +118,14 @@ export default function GlobalPresence() {
                     {/* Left Content */}
                     <div className="presence-content space-y-8">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20 font-ui">
                                 <Globe size={14} /> Global Reach
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight font-display">
                                 Transform Communities <br />
                                 Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600">Globe</span>
                             </h2>
-                            <p className="text-xl text-gray-400 leading-relaxed font-light">
+                            <p className="text-xl text-gray-400 leading-relaxed font-serif">
                                 We have established a strong presence in key international markets to better serve our clients and partners with local expertise and global standards.
                             </p>
                         </div>
@@ -150,13 +150,13 @@ export default function GlobalPresence() {
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2">
-                                            <h3 className={`text-xl font-bold transition-colors ${hoveredLocation === loc.country ? "text-amber-300" : "text-white group-hover:text-amber-300"
+                                            <h3 className={`text-xl font-bold transition-colors font-display ${hoveredLocation === loc.country ? "text-amber-300" : "text-white group-hover:text-amber-300"
                                                 }`}>
                                                 {loc.country}
                                             </h3>
                                             {loc.main && <span className="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-black rounded-md border border-primary/30 uppercase tracking-tighter">HQ</span>}
                                         </div>
-                                        <p className="text-gray-400 text-sm">{loc.address}</p>
+                                        <p className="text-gray-400 text-sm font-serif">{loc.address}</p>
                                     </div>
                                 </div>
                             ))}
@@ -243,7 +243,7 @@ export default function GlobalPresence() {
                         </ComposableMap>
 
                         {/* Map Overlay Stats */}
-                        <div className="absolute bottom-6 left-6 right-6 bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex items-center justify-between">
+                        <div className="absolute bottom-6 left-6 right-6 bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex items-center justify-between font-ui">
                             <div>
                                 <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Global Staff</p>
                                 <p className="text-xl font-black text-white">1,500+</p>

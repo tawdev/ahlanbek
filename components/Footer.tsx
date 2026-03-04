@@ -2,12 +2,14 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { gsap } from "@/lib/gsap-animations";
 import { useGSAP } from "@/lib/gsap-animations";
 import Logo from "./Logo";
 
 export default function Footer() {
+    const pathname = usePathname();
     const footerRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const bottomBarRef = useRef<HTMLDivElement>(null);
@@ -79,6 +81,13 @@ export default function Footer() {
         }
     });
 
+    const handleHomeClick = (e: React.MouseEvent) => {
+        if (pathname === "/") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
     return (
         <footer ref={footerRef} className="bg-white pt-24 pb-12 border-t border-gray-100 relative overflow-x-hidden w-full max-w-full">
             {/* Parallax BG Shapes */}
@@ -89,10 +98,16 @@ export default function Footer() {
                 <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
                     {/* Brand Section */}
                     <div className="lg:col-span-4">
-                        <Link href="/" className="flex items-center gap-4 mb-8 group">
-                            <Logo type="image" className="scale-110 origin-left" />
+                        <Link href="/" className="flex items-center gap-4 mb-8 group" onClick={handleHomeClick}>
+                            <Logo
+                                imageSrc="/logoFinal.png"
+                                type="image"
+                                width="w-[200px] md:w-[250px]"
+                                height="h-[60px] md:h-[80px]"
+                                className="scale-100 origin-left"
+                            />
                         </Link>
-                        <p className="text-gray-500 mb-8 leading-relaxed text-lg">
+                        <p className="text-gray-500 mb-8 leading-relaxed text-lg font-serif">
                             Making your dream become true since 2009. We connect markets, people, and opportunities with quality services and unwavering commitment.
                         </p>
                         <div className="flex space-x-4">
@@ -110,13 +125,14 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="lg:col-span-2 lg:col-start-6">
-                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight">Quick Links</h4>
+                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight font-display">Quick Links</h4>
                         <ul className="space-y-4">
                             {["Home", "Services", "About Us", "Contact"].map((item) => (
                                 <li key={item}>
                                     <Link
                                         href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                                        className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1"
+                                        className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1 font-ui"
+                                        onClick={item === "Home" ? handleHomeClick : undefined}
                                     >
                                         {item}
                                         <ArrowUpRight size={14} className="opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
@@ -128,11 +144,11 @@ export default function Footer() {
 
                     {/* Services Links */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight">Services</h4>
+                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight font-display">Services</h4>
                         <ul className="space-y-4">
                             {["Investment", "Real Estate", "Tourism", "Import & Export"].map((item) => (
                                 <li key={item}>
-                                    <Link href="#" className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1">
+                                    <Link href="#" className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1 font-ui">
                                         {item}
                                     </Link>
                                 </li>
@@ -142,7 +158,7 @@ export default function Footer() {
 
                     {/* Contact info Reveal from Right */}
                     <div className="lg:col-span-3">
-                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight">Contact Info</h4>
+                        <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight font-display">Contact Info</h4>
                         <ul className="space-y-6">
                             {[
                                 { icon: MapPin, text: "Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco" },
@@ -155,7 +171,7 @@ export default function Footer() {
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         {item.text.split(" / ").map((line, idx) => (
-                                            <span key={idx} className="text-gray-500 transition-colors group-hover:text-gray-900">
+                                            <span key={idx} className="text-gray-500 transition-colors group-hover:text-gray-900 font-serif">
                                                 {line}
                                             </span>
                                         ))}
@@ -167,7 +183,7 @@ export default function Footer() {
                 </div>
 
                 <div ref={bottomBarRef} className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-400 text-sm font-ui">
                         &copy; {new Date().getFullYear()} cdigital. All rights reserved.
                     </p>
                     <div className="flex gap-8 text-sm text-gray-400">

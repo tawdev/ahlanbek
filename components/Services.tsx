@@ -128,7 +128,7 @@ export default function Services() {
                     >
                         Our Capabilities
                     </motion.span>
-                    <h2 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter">
+                    <h2 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter font-display">
                         Quality <span className="text-primary">Services</span>
                     </h2>
                 </div>
@@ -172,12 +172,12 @@ export default function Services() {
                                 <service.icon className={`w-8 h-8 text-white`} />
                             </motion.div>
 
-                            <h4 className="text-3xl font-black text-white mb-4 relative z-10 tracking-tight">{service.title}</h4>
-                            <p className="text-gray-300 mb-8 leading-relaxed relative z-10 text-sm font-light">
+                            <h4 className="text-3xl font-black text-white mb-4 relative z-10 tracking-tight font-display">{service.title}</h4>
+                            <p className="text-gray-300 mb-8 leading-relaxed relative z-10 text-sm font-serif">
                                 {service.description}
                             </p>
 
-                            <Link href={`/services/${service.slug}`} className="inline-flex items-center text-white font-black group-hover:text-primary transition-colors relative z-10 tracking-widest uppercase text-xs">
+                            <Link href={`/services/${service.slug}`} className="inline-flex items-center text-white font-black group-hover:text-primary transition-colors relative z-10 tracking-widest uppercase text-xs font-ui">
                                 Discover More
                                 <motion.div
                                     animate={{ x: [0, 5, 0] }}

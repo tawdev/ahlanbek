@@ -46,7 +46,7 @@ export default function WhatsappContact() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        className="fixed bottom-24 md:bottom-28 right-4 md:right-8 z-50 w-80 rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white font-outfit"
+                        className="fixed bottom-24 md:bottom-28 right-4 md:right-8 z-50 w-80 rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white font-ui"
                         initial={{ opacity: 0, y: 50, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -57,7 +57,7 @@ export default function WhatsappContact() {
                                     <FaWhatsapp size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold">{t.title}</h3>
+                                    <h3 className="text-lg font-bold font-display">{t.title}</h3>
                                     <div className="flex items-center gap-2">
                                         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                                         <span className="text-xs text-white/80">{t.status}</span>
@@ -67,7 +67,7 @@ export default function WhatsappContact() {
                         </div>
 
                         <div className="p-6 space-y-4">
-                            <p className="text-slate-500 text-sm leading-relaxed">{t.description}</p>
+                            <p className="text-slate-500 text-sm leading-relaxed font-serif">{t.description}</p>
                             <a
                                 href="https://wa.me/+212607790956"
                                 target="_blank"
@@ -79,8 +79,8 @@ export default function WhatsappContact() {
                                         AB
                                     </div>
                                     <div>
-                                        <span className="block font-bold text-industrial-dark">Ahlanbek</span>
-                                        <span className="text-xs text-slate-400">{t.role}</span>
+                                        <span className="block font-bold text-industrial-dark font-display">Ahlanbek</span>
+                                        <span className="text-xs text-slate-400 font-serif">{t.role}</span>
                                     </div>
                                 </div>
                                 <FaWhatsapp size={24} style={{ color: themeColor }} className="group-hover:scale-110 transition-transform" />
@@ -107,7 +107,7 @@ export default function WhatsappContact() {
             <AnimatePresence>
                 {!isOpen && (
                     <motion.div
-                        className="fixed bottom-10 right-20 md:right-24 z-40 bg-white/90 backdrop-blur-md py-2 px-4 rounded-xl shadow-xl border border-gray-100 hidden md:block font-outfit"
+                        className="fixed bottom-10 right-20 md:right-24 z-40 bg-white/90 backdrop-blur-md py-2 px-4 rounded-xl shadow-xl border border-gray-100 hidden md:block font-ui"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 20 }}

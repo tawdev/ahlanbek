@@ -179,14 +179,14 @@ export default function Contact() {
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
                     {/* Left Side: Contact Form */}
                     <div ref={formContainerRef} className="bg-white p-8 md:p-12 rounded-[40px] border border-gray-100 backdrop-blur-sm shadow-sm">
-                        <h2 className="text-3xl font-black text-gray-900 mb-8 tracking-tight">Send us a message</h2>
+                        <h2 className="text-3xl font-black text-gray-900 mb-8 tracking-tight font-display">Send us a message</h2>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="form-item">
-                                    <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Full Name</label>
+                                    <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Full Name</label>
                                     <input
                                         type="text"
-                                        className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all placeholder:text-gray-400 font-medium"
+                                        className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all placeholder:text-gray-400 font-serif"
                                         placeholder="John Doe"
                                         value={formState.name}
                                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -194,10 +194,10 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div className="form-item">
-                                    <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Email Address</label>
+                                    <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Email Address</label>
                                     <input
                                         type="email"
-                                        className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all placeholder:text-gray-400 font-medium"
+                                        className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all placeholder:text-gray-400 font-serif"
                                         placeholder="john@example.com"
                                         value={formState.email}
                                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -206,9 +206,9 @@ export default function Contact() {
                                 </div>
                             </div>
                             <div className="form-item">
-                                <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Service Required</label>
+                                <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Service Required</label>
                                 <select
-                                    className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all font-medium appearance-none"
+                                    className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all font-serif appearance-none"
                                     value={formState.subject}
                                     onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                                     required
@@ -220,10 +220,10 @@ export default function Contact() {
                                 </select>
                             </div>
                             <div className="form-item">
-                                <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Your Message</label>
+                                <label className="block text-sm font-bold text-gray-700 mb-2 ml-1 font-ui">Your Message</label>
                                 <textarea
                                     rows={5}
-                                    className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all resize-none placeholder:text-gray-400 font-medium"
+                                    className="w-full px-5 py-4 rounded-2xl bg-white border border-gray-200 outline-none transition-all resize-none placeholder:text-gray-400 font-serif"
                                     placeholder="Tell us about your project..."
                                     value={formState.message}
                                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -233,7 +233,7 @@ export default function Contact() {
                             <button
                                 ref={buttonRef}
                                 type="submit"
-                                className="w-full bg-primary hover:bg-amber-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-2xl shadow-primary/25 active:scale-95"
+                                className="w-full bg-primary hover:bg-amber-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-2xl shadow-primary/25 active:scale-95 font-ui"
                             >
                                 <Send size={22} strokeWidth={2.5} />
                                 <span className="text-lg">Send via WhatsApp</span>
@@ -244,9 +244,9 @@ export default function Contact() {
                     {/* Right Side: Contact Info */}
                     <div ref={infoContainerRef} className="lg:py-8 space-y-12">
                         <div>
-                            <span className="inline-block text-primary font-bold uppercase tracking-widest text-xs mb-4">Get in touch</span>
-                            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 tracking-tighter">Contact Information</h2>
-                            <p className="text-gray-500 text-xl font-light leading-relaxed max-w-md">
+                            <span className="inline-block text-primary font-bold uppercase tracking-widest text-xs mb-4 font-ui">Get in touch</span>
+                            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 tracking-tighter font-display">Contact Information</h2>
+                            <p className="text-gray-500 text-xl font-serif leading-relaxed max-w-md">
                                 Have a question or want to work together? Drop us a line and we'll get back to you within 24 hours.
                             </p>
                         </div>
@@ -277,8 +277,8 @@ export default function Contact() {
                                         <item.icon size={28} strokeWidth={2} />
                                     </div>
                                     <div>
-                                        <h4 className="font-black text-gray-900 text-xl tracking-tight mb-1">{item.title}</h4>
-                                        <p className="text-gray-500 text-lg font-medium">{item.desc}</p>
+                                        <h4 className="font-black text-gray-900 text-xl tracking-tight mb-1 font-display">{item.title}</h4>
+                                        <p className="text-gray-500 text-lg font-serif">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}

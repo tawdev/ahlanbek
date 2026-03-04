@@ -75,7 +75,7 @@ export default function Projects() {
                     <span className="inline-block text-primary font-bold uppercase tracking-widest text-sm mb-4 bg-amber-50 px-4 py-1 rounded-full border border-amber-100">
                         Portfolio
                     </span>
-                    <SplitTextReveal className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter">
+                    <SplitTextReveal className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter font-display">
                         Latest Projects
                     </SplitTextReveal>
                 </div>
@@ -97,12 +97,12 @@ export default function Projects() {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                                <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors font-display">
                                     {project.title}
                                 </h4>
-                                <div className="flex items-center gap-2 text-gray-500">
+                                <div className="flex items-center gap-2 text-gray-500 font-serif">
                                     <MapPin size={18} className="text-primary" />
-                                    <span className="text-sm font-medium">{project.location}</span>
+                                    <span className="text-sm font-serif">{project.location}</span>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export default function Projects() {
                 </div>
 
                 <div className="text-center">
-                    <Link href="/projects" className="inline-flex items-center gap-2 text-primary font-bold hover:text-amber-600 transition-colors">
+                    <Link href="/projects" className="inline-flex items-center gap-2 text-primary font-bold hover:text-amber-600 transition-colors font-ui">
                         View All Projects
                         <ArrowRight size={20} />
                     </Link>

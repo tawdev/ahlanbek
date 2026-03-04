@@ -33,6 +33,14 @@ export default function Navbar() {
     const hoverColor = "hover:text-primary";
     const buttonBg = "bg-primary text-white hover:bg-primary/90";
 
+    const handleHomeClick = (e: React.MouseEvent) => {
+        if (pathname === "/") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setIsOpen(false);
+        }
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
@@ -73,9 +81,10 @@ export default function Navbar() {
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <div ref={logoRef} className="flex-shrink-0 opacity-0">
-                        <Link href="/" className="flex items-center gap-2">
+                        <Link href="/" className="flex items-center gap-2" onClick={handleHomeClick}>
                             <Logo
-                                videoSrc="/navLogoFinal.mp4"
+                                imageSrc="/logoFinal.png"
+                                type="image"
                                 variant="silver"
                                 showText={false}
                                 className="scale-100 origin-left"
@@ -89,7 +98,8 @@ export default function Navbar() {
                                 <Link
                                     key={item}
                                     href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                                    className={`${textColor} ${hoverColor} px-3 py-2 rounded-md text-sm font-medium transition-all hover:-translate-y-0.5 opacity-0`}
+                                    className={`${textColor} ${hoverColor} font-ui px-3 py-2 rounded-md text-sm font-medium transition-all hover:-translate-y-0.5 opacity-0`}
+                                    onClick={item === "Home" ? handleHomeClick : undefined}
                                 >
                                     {item}
                                 </Link>
@@ -98,7 +108,7 @@ export default function Navbar() {
                     </div>
 
                     <div ref={btnRef} className="hidden md:block opacity-0">
-                        <Link href="/contact" className={`${buttonBg} px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`}>
+                        <Link href="/contact" className={`${buttonBg} font-ui px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`}>
                             Get Started
                         </Link>
                     </div>
@@ -126,7 +136,10 @@ export default function Navbar() {
                             key={item}
                             href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
                             className="mobile-link block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium opacity-0"
-                            onClick={() => setIsOpen(false)}
+                            onClick={(e) => {
+                                if (item === "Home") handleHomeClick(e);
+                                setIsOpen(false);
+                            }}
                         >
                             {item}
                         </Link>

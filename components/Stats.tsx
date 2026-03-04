@@ -115,11 +115,11 @@ export default function Stats() {
                             key={index}
                             className="text-center p-8 bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:shadow-2xl transition-all duration-300"
                         >
-                            <h3 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-amber-600 mb-2">
+                            <h3 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-amber-600 mb-2 font-display">
                                 <Counter value={stat.value} suffix={stat.suffix} />
                             </h3>
-                            <p className="text-lg font-bold text-gray-800 mb-1">{stat.label}</p>
-                            <p className="text-sm text-gray-500 font-medium">{stat.sub}</p>
+                            <p className="text-lg font-bold text-gray-800 mb-1 font-display">{stat.label}</p>
+                            <p className="text-sm text-gray-500 font-serif">{stat.sub}</p>
                         </div>
                     ))}
                 </div>

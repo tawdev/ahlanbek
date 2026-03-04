@@ -45,7 +45,7 @@ export default function ScrollToTop() {
                 scale: isVisible ? 1 : 0.5,
             }}
             onClick={scrollToTop}
-            className="fixed bottom-28 right-8 z-50 flex items-center justify-center p-0 bg-transparent rounded-full group font-outfit cursor-pointer"
+            className="fixed bottom-28 right-8 z-50 flex items-center justify-center p-0 bg-transparent rounded-full group font-ui cursor-pointer"
             aria-label="Scroll to top"
         >
             <div className="relative flex items-center justify-center w-14 h-14">

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Lora, Outfit } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["400", "700", "900"] });
+const lora = Lora({ subsets: ["latin"], variable: "--font-lora", weight: ["400", "500", "600", "700"] });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ahlanbek.com"),
@@ -138,7 +141,7 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-PTB5JFRG');`}
         </Script>
       </head>
-      <body className={`${inter.className} selection:bg-primary/30 selection:text-primary`}>
+      <body className={`${montserrat.variable} ${lora.variable} ${outfit.variable} antialiased bg-white selection:bg-primary/30 selection:text-primary`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

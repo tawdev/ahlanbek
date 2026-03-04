@@ -88,10 +88,10 @@ const FounderCard = ({ name, position, description, image }: FounderCardProps) =
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80 pointer-events-none" />
             </div>
             <div className="p-8 flex-grow">
-                <span className="text-primary font-bold text-sm uppercase tracking-widest mb-2 block">{position}</span>
-                <h4 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">{name}</h4>
+                <span className="text-primary font-bold text-sm uppercase tracking-widest mb-2 block font-ui">{position}</span>
+                <h4 className="text-2xl font-black text-gray-900 mb-3 tracking-tight font-display">{name}</h4>
                 {description && (
-                    <p className="text-gray-500 leading-relaxed font-light text-sm italic">
+                    <p className="text-gray-500 leading-relaxed font-serif text-sm italic">
                         "{description}"
                     </p>
                 )}
@@ -166,7 +166,7 @@ export default function Founders() {
                     </span>
                     <h2
                         ref={titleRef}
-                        className="text-3xl md:text-5xl font-black text-gray-900 max-w-3xl mx-auto leading-tight opacity-0"
+                        className="text-3xl md:text-5xl font-black text-gray-900 max-w-3xl mx-auto leading-tight opacity-0 font-display"
                     >
                         We Are Leading International Company In The World
                     </h2>

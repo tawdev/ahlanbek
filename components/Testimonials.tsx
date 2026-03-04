@@ -103,10 +103,10 @@ export default function Testimonials() {
         <section className="py-24 bg-white overflow-hidden">
             <div ref={containerRef} className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight font-display">
                         What Our Clients Say
                     </h2>
-                    <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+                    <p className="text-xl text-gray-500 max-w-2xl mx-auto font-serif">
                         Trusted by industry leaders across the globe.
                     </p>
                 </div>
@@ -123,7 +123,7 @@ export default function Testimonials() {
                                 ))}
                             </div>
 
-                            <p className="text-2xl md:text-3xl text-gray-800 mb-10 leading-tight font-medium italic">
+                            <p className="text-2xl md:text-3xl text-gray-800 mb-10 leading-tight font-serif italic">
                                 "{item.content}"
                             </p>
 
@@ -132,8 +132,8 @@ export default function Testimonials() {
                                     {item.name.charAt(0)}
                                 </div>
                                 <div>
-                                    <h4 className="font-black text-gray-900 text-xl">{item.name}</h4>
-                                    <p className="text-primary font-bold uppercase tracking-widest text-sm">{item.role}</p>
+                                    <h4 className="font-black text-gray-900 text-xl font-display">{item.name}</h4>
+                                    <p className="text-primary font-bold uppercase tracking-widest text-sm font-ui">{item.role}</p>
                                 </div>
                             </div>
                         </div>

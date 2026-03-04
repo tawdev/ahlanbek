@@ -218,14 +218,14 @@ export default function Hero() {
                         <div className="relative">
                             <SplitTextReveal
                                 type="chars"
-                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 tracking-tighter mb-4 leading-[0.9] perspective-1000"
+                                className="text-5xl md:text-7xl lg:text-8xl font-medium text-slate-900 leading-[1.1] tracking-tight font-serif italic"
                             >
                                 Make Your Dream
                             </SplitTextReveal>
                             <SplitTextReveal
                                 type="words"
                                 delay={0.5}
-                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter mb-8 leading-[0.9] text-gray-700"
+                                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter mb-8 leading-[0.9] text-primary font-serif italic"
                             >
                                 Become True
                             </SplitTextReveal>
@@ -233,7 +233,7 @@ export default function Hero() {
 
                         <p
                             ref={descriptionRef}
-                            className="text-lg text-gray-500 mb-10 leading-relaxed font-light mt-8 max-w-xl"
+                            className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-serif"
                         >
                             Since 2009 in Germany, we have been working on the supply of necessary things in Morocco.
                             Bridging continents through excellence and uncompromising quality.
@@ -245,13 +245,12 @@ export default function Hero() {
                         >
                             <Link
                                 href="/services"
-                                className="group relative px-8 py-4 bg-gray-900 text-white rounded-xl font-bold transition-all shadow-2xl shadow-gray-200/50 overflow-hidden flex items-center justify-center gap-3 text-lg w-full sm:w-auto hover:bg-black"
+                                className="px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primary/90 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group font-ui"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     Our Services
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                <div className="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
                             </Link>
 
                             <Link

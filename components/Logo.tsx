@@ -8,6 +8,9 @@ interface LogoProps {
     showText?: boolean;
     type?: "video" | "image";
     videoSrc?: string;
+    imageSrc?: string;
+    width?: string;
+    height?: string;
 }
 
 export default function Logo({
@@ -15,13 +18,16 @@ export default function Logo({
     variant = "silver",
     showText = true,
     type = "video",
-    videoSrc = "/logoAhlanbek.mp4"
+    videoSrc = "/logoAhlanbek.mp4",
+    imageSrc = "/logoFinal.png",
+    width = "w-[200px] md:w-[220px]",
+    height = "h-[60px] md:h-[80px]"
 }: LogoProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (
         <div ref={containerRef} className={`flex flex-col items-center group ${className}`}>
-            <div className="relative w-[380px] h-[100px] md:w-[450px] md:h-[130px] transition-all duration-500">
+            <div className={`relative ${width} ${height} transition-all duration-500`}>
                 {type === "video" ? (
                     <video
                         src={videoSrc}
@@ -33,7 +39,7 @@ export default function Logo({
                     />
                 ) : (
                     <img
-                        src="/logoFinal.png"
+                        src={imageSrc}
                         alt="Ahlanbek Logo"
                         className="w-full h-full object-contain"
                     />

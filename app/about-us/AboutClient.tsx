@@ -15,7 +15,7 @@ export default function AboutClient() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
+                        className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter font-display"
                     >
                         About <span className="text-primary">Ahlanbek</span>
                     </motion.h1>
@@ -23,7 +23,7 @@ export default function AboutClient() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-                        className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light"
+                        className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-serif"
                     >
                         Driven by passion, defined by excellence. We are dedicated to creating meaningful connections and fostering global growth.
                     </motion.p>
@@ -40,11 +40,11 @@ export default function AboutClient() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">Our Story</h2>
-                            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight font-display">Our Story</h2>
+                            <p className="text-lg text-gray-600 mb-6 leading-relaxed font-serif">
                                 Founded in 2009, Ahlanbek started with a simple vision: to bridge the gap between markets and people. What began as a small consultancy firm in Marrakesh has now grown into a multinational corporation with a presence in major global hubs including Munich, Dubai, and London.
                             </p>
-                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                            <p className="text-lg text-gray-600 mb-8 leading-relaxed font-serif">
                                 Our journey is marked by a relentless pursuit of quality and innovation. Whether it's investment strategies, real estate development, or digital solutions, we bring a unique perspective that combines local insights with global best practices.
                             </p>
 
@@ -52,7 +52,7 @@ export default function AboutClient() {
                                 {["15+ Years of Excellence", "International Presence", "Customer-Centric Approach"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <CheckCircle2 size={20} className="text-primary" />
-                                        <span className="font-semibold text-gray-800">{item}</span>
+                                        <span className="font-semibold text-gray-800 font-ui">{item}</span>
                                     </div>
                                 ))}
                             </div>
@@ -71,8 +71,8 @@ export default function AboutClient() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
                             <div className="absolute bottom-8 left-8 text-white">
-                                <p className="font-bold text-2xl">Empowering Success</p>
-                                <p className="opacity-90">Since 2009</p>
+                                <p className="font-bold text-2xl font-display">Empowering Success</p>
+                                <p className="opacity-90 font-ui">Since 2009</p>
                             </div>
                         </motion.div>
                     </div>
@@ -85,8 +85,8 @@ export default function AboutClient() {
             {/* Mission */}
             <section className="py-24 bg-white text-center">
                 <div className="max-w-4xl 3xl:max-w-[1200px] 4xl:max-w-[1400px] mx-auto px-4">
-                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">Our Mission</h2>
-                    <p className="text-2xl text-gray-600 font-light italic leading-relaxed">
+                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight font-display">Our Mission</h2>
+                    <p className="text-2xl text-gray-600 font-serif italic leading-relaxed">
                         "To provide world-class services that empower businesses and individuals to thrive in a connected world, upholding the values of integrity, innovation, and excellence in everything we do."
                     </p>
                 </div>

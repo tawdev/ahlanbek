@@ -184,7 +184,7 @@ export default function Footer() {
 
                 <div ref={bottomBarRef} className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm font-ui">
-                        &copy; {new Date().getFullYear()} cdigital. All rights reserved.
+                        &copy; {new Date().getFullYear()} <a href="https://cdigital.ma" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors font-bold">cdigital</a>. All rights reserved.
                     </p>
                     <div className="flex gap-8 text-sm text-gray-400">
                         <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>

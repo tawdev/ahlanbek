@@ -214,8 +214,8 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white w-full" />
             </div>
 
-            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full overflow-hidden">
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-center">
                     {/* Left Content */}
                     <div ref={contentRef} className="text-left col-span-12 lg:col-span-7">
 
@@ -223,14 +223,14 @@ export default function Hero() {
                         <div className="relative">
                             <SplitTextReveal
                                 type="words"
-                                className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-[1.1] tracking-tighter font-display"
+                                className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-[1.1] tracking-tighter font-display"
                             >
                                 Make Your Dream
                             </SplitTextReveal>
                             <SplitTextReveal
                                 type="words"
                                 delay={0.5}
-                                className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-8 leading-[0.9] text-primary font-display"
+                                className="text-2xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-8 leading-[0.9] text-primary font-display"
                             >
                                 Become True
                             </SplitTextReveal>
@@ -238,7 +238,7 @@ export default function Hero() {
 
                         <p
                             ref={descriptionRef}
-                            className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-serif"
+                            className="text-sm sm:text-lg md:text-xl text-slate-600 max-w-[calc(100vw-32px)] sm:max-w-2xl leading-relaxed font-serif mb-10 whitespace-normal break-words overflow-visible"
                         >
                             Since 2009 in Germany, we have been working on the supply of necessary things in Morocco.
                             Bridging continents through excellence and uncompromising quality.
@@ -246,24 +246,24 @@ export default function Hero() {
 
                         <div
                             ref={buttonsRef}
-                            className="flex flex-col sm:flex-row items-center gap-5"
+                            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5"
                         >
                             <Link
                                 href="/services"
-                                className="px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primary/90 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group font-ui"
+                                className="px-5 py-2.5 sm:px-8 sm:py-4 bg-primary text-white rounded-full font-bold text-sm sm:text-lg hover:bg-primary/90 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group font-ui"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     Our Services
-                                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </span>
                             </Link>
 
                             <Link
                                 href="/contact"
-                                className="group px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-3 text-lg hover:border-gray-300 w-full sm:w-auto"
+                                className="group px-5 py-2.5 sm:px-8 sm:py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-3 text-sm sm:text-lg hover:border-gray-300"
                             >
                                 Contact Us
-                                <ChevronRight size={20} className="text-primary group-hover:text-amber-500 transition-colors" />
+                                <ChevronRight size={16} className="text-primary group-hover:text-amber-500 transition-colors" />
                             </Link>
                         </div>
 
@@ -298,7 +298,7 @@ export default function Hero() {
 
                         <div
                             ref={image2Ref}
-                            className="absolute bottom-0 lg:-bottom-10 left-0 w-3/4 h-[250px] sm:h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 parallax-layer-2"
+                            className="absolute bottom-0 lg:-bottom-10 left-0 w-3/4 h-[250px] sm:h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 parallax-layer-2 hidden lg:block"
                         >
                             <img
                                 src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070"

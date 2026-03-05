@@ -140,7 +140,7 @@ export default function About() {
 
                         <div
                             ref={imageSmallRef}
-                            className="absolute -left-12 bottom-0 w-[60%] h-[45%] rounded-[50px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.2)] border-[12px] border-white z-20"
+                            className="absolute -left-12 bottom-0 w-[60%] h-[45%] rounded-[50px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.2)] border-[12px] border-white z-20 hidden lg:block"
                         >
                             <img
                                 src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070"

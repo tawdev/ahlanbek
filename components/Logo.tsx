@@ -20,8 +20,8 @@ export default function Logo({
     type = "video",
     videoSrc = "/logoAhlanbek.mp4",
     imageSrc = "/logoFinal.png",
-    width = "w-[200px] md:w-[220px]",
-    height = "h-[60px] md:h-[80px]"
+    width = "w-[120px] md:w-[220px]",
+    height = "h-[40px] md:h-[80px]"
 }: LogoProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 

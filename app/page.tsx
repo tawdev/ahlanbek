@@ -8,6 +8,7 @@ import Process from "@/components/Process";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
 import Founders from "@/components/Founders";
 import GlobalPresence from "@/components/GlobalPresence";
+import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
@@ -29,6 +30,7 @@ export default function Home() {
       <DiagonalMarquee />
       <About />
       <Founders />
+      <Gallery />
       <Projects />
       <GlobalPresence />
       <Testimonials />

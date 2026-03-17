@@ -33,7 +33,8 @@ export default function Contact() {
         "Tourism Services",
         "Management Services",
         "Import & Export",
-        "Web & App Development"
+        "Web & App Development",
+        "Event Production"
     ];
 
     useGSAP(() => {
@@ -278,7 +279,13 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h4 className="font-black text-gray-900 text-xl tracking-tight mb-1 font-display">{item.title}</h4>
-                                        <p className="text-gray-500 text-lg font-serif">{item.desc}</p>
+                                        <div className="flex flex-col gap-1">
+                                            {item.desc.split(" / ").map((line, idx) => (
+                                                <span key={idx} className="text-gray-500 text-lg font-serif">
+                                                    {line}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             ))}

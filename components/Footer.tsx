@@ -146,7 +146,7 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight font-display">Services</h4>
                         <ul className="space-y-4">
-                            {["Investment", "Real Estate", "Tourism", "Import & Export"].map((item) => (
+                            {["Investment", "Real Estate", "Tourism", "Import & Export", "Events"].map((item) => (
                                 <li key={item}>
                                     <Link href="#" className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1 font-ui">
                                         {item}

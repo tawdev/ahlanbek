@@ -98,7 +98,7 @@ export default function Navbar() {
                                 <Link
                                     key={item}
                                     href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                                    className={`${textColor} ${hoverColor} font-ui px-3 py-2 rounded-md text-sm font-medium transition-all hover:-translate-y-0.5 opacity-0`}
+                                    className={`${textColor} ${hoverColor} font-ui px-3 py-2 rounded-md text-base font-medium transition-all hover:-translate-y-0.5 opacity-0`}
                                     onClick={item === "Home" ? handleHomeClick : undefined}
                                 >
                                     {item}
@@ -108,7 +108,7 @@ export default function Navbar() {
                     </div>
 
                     <div ref={btnRef} className="hidden md:block opacity-0">
-                        <Link href="/contact" className={`${buttonBg} font-ui px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`}>
+                        <Link href="/contact" className={`${buttonBg} font-ui px-6 py-2.5 rounded-full text-base font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`}>
                             Get Started
                         </Link>
                     </div>
@@ -135,7 +135,7 @@ export default function Navbar() {
                         <Link
                             key={item}
                             href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                            className="mobile-link block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium opacity-0"
+                            className="mobile-link block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-2 rounded-md text-lg font-medium opacity-0"
                             onClick={(e) => {
                                 if (item === "Home") handleHomeClick(e);
                                 setIsOpen(false);

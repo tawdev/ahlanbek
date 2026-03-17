@@ -37,7 +37,8 @@ function ContactForm() {
         "Tourism Services",
         "Management Services",
         "Import & Export",
-        "Web & App Development"
+        "Web & App Development",
+        "Event Production"
     ];
 
     return (
@@ -140,7 +141,10 @@ function ContactForm() {
                             </div>
                             <div>
                                 <h4 className="font-bold text-gray-900 text-lg font-display">Phone Number</h4>
-                                <p className="text-gray-500 font-serif">+212 607 790 956 / +212 524 308 038</p>
+                                <div className="flex flex-col gap-0.5">
+                                    <p className="text-gray-500 font-serif">+212 607 790 956</p>
+                                    <p className="text-gray-500 font-serif">+212 524 308 038</p>
+                                </div>
                                 <p className="text-gray-400 text-sm font-ui">Mon-Fri 9am-6pm</p>
                             </div>
                         </div>

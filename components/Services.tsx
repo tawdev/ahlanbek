@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { TrendingUp, Building2, Plane, Briefcase, Globe, Smartphone, ArrowRight } from "lucide-react";
+import { TrendingUp, Building2, Plane, Briefcase, Globe, Smartphone, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -16,7 +16,7 @@ const services = [
         slug: "investment",
         description: "From concept to execution, we create memorable events that inspire, engage, and leave a lasting impression.",
         color: "bg-[#D4AF37]",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop",
+        image: "/images/WhatsApp Image 2026-03-17 at 02.42.07.jpeg",
     },
     {
         icon: Building2,
@@ -24,7 +24,7 @@ const services = [
         slug: "real-estate",
         description: "Connecting you to the best properties and investment opportunities with trust, transparency, and expertise.",
         color: "bg-[#B8860B]",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+        image: "/images/WhatsApp Image 2026-03-17 at 02.43.39.jpeg",
     },
     {
         icon: Plane,
@@ -57,6 +57,14 @@ const services = [
         description: "Innovative web and mobile applications designed to enhance your digital presence, boost user engagement, and drive business growth.",
         color: "bg-[#D4AC0D]",
         image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+        icon: Sparkles,
+        title: "l’évènementiel Production prestation Services",
+        slug: "event-production",
+        description: "Providing high-end event production and professional services, delivering seamless experiences through expert organization and creative precision.",
+        color: "bg-[#DAA520]",
+        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop",
     },
 ];
 

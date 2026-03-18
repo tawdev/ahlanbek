@@ -323,5 +323,77 @@ export const servicesData: Record<string, ServiceDetail> = {
             { value: "100%", label: "Project Success" },
             { value: "8+", label: "Years Development" }
         ]
+    },
+    "evenementiel": {
+        slug: "evenementiel",
+        title: "L’évènementiel",
+        subtitle: "Event Production & Management",
+        description: "From high-end event production to professional management, we deliver seamless experiences with creative precision. We handle every detail to ensure your event is a success.",
+        icon: "Sparkles",
+        color: "bg-primary",
+        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop",
+        features: [
+            { icon: "Star", title: "Creative Concept", description: "Unique and innovative event concepts" },
+            { icon: "Calendar", title: "Full Coordination", description: "End-to-end logistics and management" },
+            { icon: "Mic", title: "Production", description: "High-end technical and artistic production" }
+        ],
+        process: [
+            { step: 1, title: "Concept", description: "Defining the event's vision" },
+            { step: 2, title: "Planning", description: "Detailed roadmap and logistics" },
+            { step: 3, title: "On-site Mgmt", description: "Coordinating the live event" }
+        ],
+        benefits: ["Seamless execution", "Stress-free planning", "Memorable experiences"],
+        stats: [
+            { value: "200+", label: "Events Managed" },
+            { value: "99%", label: "Satisfaction Rate" }
+        ]
+    },
+    "prestation-service": {
+        slug: "prestation-service",
+        title: "Prestation de service",
+        subtitle: "Professional Services",
+        description: "Professional services tailored to your needs, ensuring high-quality results and efficient execution across diverse sectors. Our experts are ready to support your business goals.",
+        icon: "Briefcase",
+        color: "bg-primary",
+        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2070&auto=format&fit=crop",
+        features: [
+            { icon: "UserCheck", title: "Expert Staff", description: "Highly qualified professionals" },
+            { icon: "Clock", title: "Timely Delivery", description: "Respecting deadlines and commitments" },
+            { icon: "CheckCircle", title: "Quality Control", description: "Rigorous standards for every service" }
+        ],
+        process: [
+            { step: 1, title: "Assessment", description: "Evaluating your service needs" },
+            { step: 2, title: "Service Design", description: "Customizing our approach" },
+            { step: 3, title: "Delivery", description: "Execution by our professional team" }
+        ],
+        benefits: ["Expertise in multiple fields", "Reliable partnership", "Scalable solutions"],
+        stats: [
+            { value: "150+", label: "Clients Served" },
+            { value: "10+", label: "Service Categories" }
+        ]
+    },
+    "protection-cinematographique": {
+        slug: "protection-cinematographique",
+        title: "Protection cinématographique",
+        subtitle: "Film Set Security & Protection",
+        description: "Specialized security and protection services for film productions, providing a safe and controlled environment for creative teams. We ensure your production runs smoothly without interruptions.",
+        icon: "ShieldCheck",
+        color: "bg-primary",
+        image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop",
+        features: [
+            { icon: "Camera", title: "Set Protection", description: "Securing locations and equipment" },
+            { icon: "UserShield", title: "Cast & Crew Security", description: "Personal protection for talent" },
+            { icon: "Lock", title: "Access Control", description: "Managing set attendance and entry" }
+        ],
+        process: [
+            { step: 1, title: "Risk Assessment", description: "Analyzing location and set risks" },
+            { step: 2, title: "Security Plan", description: "Drafting a comprehensive protection strategy" },
+            { step: 3, title: "On-set Presence", description: "Active monitoring during filming" }
+        ],
+        benefits: ["Safe production environment", "Protection of assets", "Discreet security"],
+        stats: [
+            { value: "50+", label: "Films Protected" },
+            { value: "100%", label: "Incident-Free" }
+        ]
     }
 };

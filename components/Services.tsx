@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { TrendingUp, Building2, Plane, Briefcase, Globe, Smartphone, ArrowRight, Sparkles } from "lucide-react";
+import { TrendingUp, Building2, Plane, Briefcase, Globe, Smartphone, ArrowRight, Sparkles, Camera, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -60,11 +60,27 @@ const services = [
     },
     {
         icon: Sparkles,
-        title: "l’évènementiel Production prestation Services",
-        slug: "event-production",
-        description: "Providing high-end event production and professional services, delivering seamless experiences through expert organization and creative precision.",
-        color: "bg-[#DAA520]",
+        title: "L’évènementiel",
+        slug: "evenementiel",
+        description: "From high-end event production to professional management, we deliver seamless experiences with creative precision.",
+        color: "bg-[#D4AF37]",
         image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop",
+    },
+    {
+        icon: Briefcase,
+        title: "prestation de service",
+        slug: "prestation-service",
+        description: "Professional services tailored to your needs, ensuring high-quality results and efficient execution across diverse sectors.",
+        color: "bg-[#B8860B]",
+        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+        icon: ShieldCheck,
+        title: "protection cinématographique",
+        slug: "protection-cinematographique",
+        description: "Specialized security and protection services for film productions, providing a safe and controlled environment for creative teams.",
+        color: "bg-[#DAA520]",
+        image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop",
     },
 ];
 

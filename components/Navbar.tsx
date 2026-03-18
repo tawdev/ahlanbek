@@ -29,9 +29,17 @@ export default function Navbar() {
     const isTransparentPage = true;
     const effectiveScrolled = scrolled;
 
-    const textColor = "text-slate-900";
+    // Background and border styles
+    const navBackground = effectiveScrolled 
+        ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 py-4" 
+        : "bg-transparent border-transparent py-6";
+
+    // Text and hover colors based on background and page type
+    const textColor = (effectiveScrolled || !isDarkHeader) ? "text-slate-900" : "text-white";
     const hoverColor = "hover:text-primary";
-    const buttonBg = "bg-primary text-white hover:bg-primary/90";
+    const buttonBg = (effectiveScrolled || !isDarkHeader) 
+        ? "bg-primary text-white hover:bg-primary/90" 
+        : "bg-white text-slate-900 hover:bg-gray-100";
 
     const handleHomeClick = (e: React.MouseEvent) => {
         if (pathname === "/") {
@@ -76,7 +84,7 @@ export default function Navbar() {
     return (
         <nav
             ref={navRef}
-            className="fixed w-full z-50 transition-all duration-300 bg-white shadow-sm border-b border-gray-100 py-6"
+            className={`fixed w-full z-50 transition-all duration-500 ${navBackground}`}
         >
             <div className="max-w-7xl 3xl:max-w-[1500px] 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
@@ -85,7 +93,7 @@ export default function Navbar() {
                             <Logo
                                 imageSrc="/logoFinal.png"
                                 type="image"
-                                variant="silver"
+                                variant={(effectiveScrolled || !isDarkHeader) ? "dark" : "silver"}
                                 showText={false}
                                 className="scale-100 origin-left"
                             />

@@ -41,7 +41,7 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
     return (
         <div className="min-h-screen bg-gray-50/50">
             {/* Hero Section */}
-            <section className="bg-gray-900 pt-32 pb-20 relative overflow-hidden">
+            <section className="bg-gray-900 pt-48 pb-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.2))] from-gray-900 via-gray-900 to-gray-900" />
 
                 {/* Background Image with Overlay */}

@@ -29,17 +29,13 @@ export default function Navbar() {
     const isTransparentPage = true;
     const effectiveScrolled = scrolled;
 
-    // Background and border styles
-    const navBackground = effectiveScrolled 
-        ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 py-4" 
-        : "bg-transparent border-transparent py-6";
+    // Background and border styles - Solid white on all pages as requested
+    const navBackground = "bg-white shadow-sm border-b border-gray-100 py-4";
 
     // Text and hover colors based on background and page type
-    const textColor = (effectiveScrolled || !isDarkHeader) ? "text-slate-900" : "text-white";
+    const textColor = "text-slate-900";
     const hoverColor = "hover:text-primary";
-    const buttonBg = (effectiveScrolled || !isDarkHeader) 
-        ? "bg-primary text-white hover:bg-primary/90" 
-        : "bg-white text-slate-900 hover:bg-gray-100";
+    const buttonBg = "bg-primary text-white hover:bg-primary/90";
 
     const handleHomeClick = (e: React.MouseEvent) => {
         if (pathname === "/") {
@@ -93,7 +89,7 @@ export default function Navbar() {
                             <Logo
                                 imageSrc="/logoFinal.png"
                                 type="image"
-                                variant={(effectiveScrolled || !isDarkHeader) ? "dark" : "silver"}
+                                variant="dark"
                                 showText={false}
                                 className="scale-100 origin-left"
                             />

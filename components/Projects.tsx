@@ -8,9 +8,9 @@ import { useGSAP } from "@/lib/gsap-animations";
 import SplitTextReveal from "./SplitTextReveal";
 
 const projects = [
-    { id: 1, title: "Science Lab Building", location: "New York, USA", category: "Commercial", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" },
-    { id: 2, title: "Long Gate Bridge", location: "Malmo, SE", category: "Infrastructure", image: "https://images.unsplash.com/photo-1555109307-f7d9da25c244?w=800&q=80" },
-    { id: 3, title: "Enix Lawyer Building", location: "Toronto, CA", category: "Commercial", image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80" },
+    { id: 1, title: "Munchen", location: "Munich, Germany", category: "Luxury Residence", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg" },
+    { id: 2, title: "Rabat", location: "Rabat, Morocco", category: "Modern Architecture", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Morocco_-_Rabat_%2831387775324%29.jpg/1280px-Morocco_-_Rabat_%2831387775324%29.jpg" },
+    { id: 3, title: "Dubai", location: "Dubai, UAE", category: "Futuristic Complex", image: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Burj_Khalifa_2021.jpg/1280px-Burj_Khalifa_2021.jpg" },
 ];
 
 export default function Projects() {

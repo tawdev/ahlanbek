@@ -111,13 +111,18 @@ export default function Footer() {
                             Making your dream become true since 2009. We connect markets, people, and opportunities with quality services and unwavering commitment.
                         </p>
                         <div className="flex space-x-4">
-                            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                            {[
+                                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61558402881985&locale=ar_AR" },
+                                { Icon: Mail, href: "mailto:contact@ahlanbek.com" }
+                            ].map((social, i) => (
                                 <Link
                                     key={i}
-                                    href="#"
+                                    href={social.href}
+                                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                                    rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                                     className="social-icon w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
                                 >
-                                    <Icon size={18} />
+                                    <social.Icon size={18} />
                                 </Link>
                             ))}
                         </div>
@@ -146,10 +151,16 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight font-display">Services</h4>
                         <ul className="space-y-4">
-                            {["Investment", "Real Estate", "Tourism", "Import & Export", "Events"].map((item) => (
-                                <li key={item}>
-                                    <Link href="#" className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1 font-ui">
-                                        {item}
+                            {[
+                                { name: "Investment", slug: "investment" },
+                                { name: "Real Estate", slug: "real-estate" },
+                                { name: "Tourism", slug: "tourism" },
+                                { name: "Import & Export", slug: "import-export" },
+                                { name: "Events", slug: "evenementiel" }
+                            ].map((item) => (
+                                <li key={item.slug}>
+                                    <Link href={`/services/${item.slug}`} className="text-gray-500 hover:text-primary transition-all flex items-center gap-1 group translate-x-0 hover:translate-x-1 font-ui">
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -161,20 +172,30 @@ export default function Footer() {
                         <h4 className="text-gray-900 font-bold mb-6 text-lg tracking-tight font-display">Contact Info</h4>
                         <ul className="space-y-6">
                             {[
-                                { icon: MapPin, text: "Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco" },
-                                { icon: Phone, text: "+212 607 790 956 / +212 524 308 038" },
-                                { icon: Mail, text: "contact@ahlanbek.com" }
+                                { icon: MapPin, text: "Lot iguider N48 AV Allal El Fassi, Marrakesh, Morocco", href: "https://goo.gl/maps/your-google-maps-link" }, // Replace with actual maps link if known
+                                { icon: Phone, text: "+212 607 790 956 / +212 524 308 038", href: "tel:+212607790956" },
+                                { icon: Mail, text: "contact@ahlanbek.com", href: "mailto:contact@ahlanbek.com" }
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4 group">
                                     <div className="p-2 bg-amber-50 text-primary rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                                         <item.icon size={20} />
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        {item.text.split(" / ").map((line, idx) => (
-                                            <span key={idx} className="text-gray-500 transition-colors group-hover:text-gray-900 font-serif">
-                                                {line}
-                                            </span>
-                                        ))}
+                                        {item.href ? (
+                                            <a href={item.href} className="text-gray-500 transition-colors group-hover:text-gray-900 font-serif">
+                                                {item.text.split(" / ").map((line, idx) => (
+                                                    <span key={idx} className="block">
+                                                        {line}
+                                                    </span>
+                                                ))}
+                                            </a>
+                                        ) : (
+                                            item.text.split(" / ").map((line, idx) => (
+                                                <span key={idx} className="text-gray-500 transition-colors group-hover:text-gray-900 font-serif">
+                                                    {line}
+                                                </span>
+                                            ))
+                                        )}
                                     </div>
                                 </li>
                             ))}

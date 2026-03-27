@@ -372,25 +372,25 @@ export const servicesData: Record<string, ServiceDetail> = {
             { value: "10+", label: "Service Categories" }
         ]
     },
-    "protection-cinematographique": {
-        slug: "protection-cinematographique",
-        title: "Protection cinématographique",
-        subtitle: "Film Set Security & Protection",
-        description: "Specialized security and protection services for film productions, providing a safe and controlled environment for creative teams. We ensure your production runs smoothly without interruptions.",
+    "prodection-cinematographique": {
+        slug: "prodection-cinematographique",
+        title: "Prodection cinématographique",
+        subtitle: "Film Set Security & prodection",
+        description: "Specialized security and prodection services for film productions, providing a safe and controlled environment for creative teams. We ensure your production runs smoothly without interruptions.",
         icon: "ShieldCheck",
         color: "bg-primary",
         image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop",
         features: [
-            { icon: "Camera", title: "Set Protection", description: "Securing locations and equipment" },
-            { icon: "UserShield", title: "Cast & Crew Security", description: "Personal protection for talent" },
+            { icon: "Camera", title: "Set prodection", description: "Securing locations and equipment" },
+            { icon: "UserShield", title: "Cast & Crew Security", description: "Personal prodection for talent" },
             { icon: "Lock", title: "Access Control", description: "Managing set attendance and entry" }
         ],
         process: [
             { step: 1, title: "Risk Assessment", description: "Analyzing location and set risks" },
-            { step: 2, title: "Security Plan", description: "Drafting a comprehensive protection strategy" },
+            { step: 2, title: "Security Plan", description: "Drafting a comprehensive prodection strategy" },
             { step: 3, title: "On-set Presence", description: "Active monitoring during filming" }
         ],
-        benefits: ["Safe production environment", "Protection of assets", "Discreet security"],
+        benefits: ["Safe production environment", "prodection of assets", "Discreet security"],
         stats: [
             { value: "50+", label: "Films Protected" },
             { value: "100%", label: "Incident-Free" }

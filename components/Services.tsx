@@ -76,9 +76,9 @@ const services = [
     },
     {
         icon: ShieldCheck,
-        title: "protection cinématographique",
-        slug: "protection-cinematographique",
-        description: "Specialized security and protection services for film productions, providing a safe and controlled environment for creative teams.",
+        title: "prodection cinématographique",
+        slug: "prodection-cinematographique",
+        description: "Specialized security and prodection services for film productions, providing a safe and controlled environment for creative teams.",
         color: "bg-[#DAA520]",
         image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop",
     },
